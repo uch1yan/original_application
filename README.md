@@ -38,7 +38,8 @@ https://docs.google.com/spreadsheets/d/1IjP_UXeH_nPV4y0-xnH9CCQVz0_SMeDCFIe0rQeM
 https://cacoo.com/diagrams/3Vz1PAM3yyTSscfV/63D9B
 
 ## **ER 図**
-![スクリーンショット (221)](https://user-images.githubusercontent.com/105041608/193535077-76f187ec-91b5-47aa-91e3-1059bfa328e7.png)
+![スクリーンショット (222)](https://user-images.githubusercontent.com/105041608/193572237-4fe6f1fe-b606-436e-bda0-1a36fa771a91.png)
+
 
 ## **画面遷移図**
 ![スクリーンショット (218)](https://user-images.githubusercontent.com/105041608/193478069-cabbbe3c-aa6c-4c10-b4e3-c351a294253a.png)
