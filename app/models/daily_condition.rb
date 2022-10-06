@@ -1,0 +1,2 @@
+class DailyCondition < ApplicationRecord
+end

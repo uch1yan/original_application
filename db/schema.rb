@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_05_060307) do
+ActiveRecord::Schema.define(version: 2022_10_06_003857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_conditions", force: :cascade do |t|
+    t.datetime "date", null: false
+    t.integer "mood", null: false
+    t.string "temperature"
+    t.integer "toilet", null: false
+    t.string "sleep", null: false
+    t.text "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "kids", force: :cascade do |t|
+    t.string "kid_name"
+    t.date "date_of_birth"
+    t.text "avatar"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
