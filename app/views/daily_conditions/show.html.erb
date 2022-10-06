@@ -1,2 +1,24 @@
-<h1>DailyConditions#show</h1>
-<p>Find me in app/views/daily_conditions/show.html.erb</p>
+  <h1>詳細ページ</h1>
+  <%# <div class="text-center"> %>
+
+  <p><strong>日付：</strong> <%= @condition.date %></p>
+  <p><strong>機嫌：</strong> <%= @condition.mood %></p>
+  <p><strong>体温：</strong>  <%= @condition.temperature %></p>
+  <p><strong>排便：</strong>  <%= @condition.toilet %></p>
+  <p><strong>睡眠：</strong>  <%= @condition.sleep %></p>
+  <p><strong>コメント：</strong>  <%= @condition.comment %></p>
+
+  <%= link_to '編集', edit_daily_condition_path(@condition.id) %>
+
+  <p>Comment</p>
+
+  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+  <div id="comments_area">
+    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, daily_condition: @condition } %>
+  </div>
+
+  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, daily_condition: @condition } %>
+
+  
