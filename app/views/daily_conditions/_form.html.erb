@@ -1,0 +1,64 @@
+<%= form_with(model: @condition, local: true) do |form| %>
+
+	<% if @condition.errors.any? %>
+		<div class="error_explanation">
+			<h2><%= @condition.errors.count %>件のエラーがあります</h2>
+			<ul>
+			<% @condition.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+
+  <div class="row justify-content-center">
+    <table>
+      <tr>
+        <div class="field">
+          <%= form.label :date %>
+          <%= form.datetime_field :date %>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="field">
+          <%= form.label :mood %>
+          <%= form.select :mood, DailyCondition.moods.keys, include_blank: "選択してください" %>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="field">
+          <%= form.label :temperature %>
+          <%= form.text_field :temperature %>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="field">
+          <%= form.label :toilet %>
+          <%= form.select :toilet, DailyCondition.toilets.keys, include_blank: "選択してください" %>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="field">
+          <%= form.label :sleep %>
+          <%= form.text_field :sleep %>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="field">
+          <%= form.label :comment %>
+          <%= form.text_field :comment %>
+        </div>
+      </tr>
+    </table>
+
+    <%= form.submit '登録' %></p>
+
+  </div>
+
+<% end %>

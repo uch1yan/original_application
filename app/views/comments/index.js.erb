@@ -1,0 +1,3 @@
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.daily_condition.comments, daily_condition: @comment.daily_condition }) %>");
+$("textarea").val('');
+$("#notice").html("<%= j flash[:notice] %>");
