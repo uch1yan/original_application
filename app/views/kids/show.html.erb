@@ -1,2 +1,15 @@
-<h1>Kids#show</h1>
-<p>Find me in app/views/kids/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>子供の名前:</strong>
+  <%= @kid.kid_name %>
+</p>
+
+<p>
+  <strong>生年月日:</strong>
+  <%= @kid.date_of_birth %>
+</p>
+
+<%= link_to '編集', edit_kid_path(@kid) %> |
+<%= button_to "削除", kid_path(@kid.id), method: :delete %>
+
