@@ -4,7 +4,7 @@ class DailyConditionsController < ApplicationController
   end
 
   def create
-    @condition = DailyCondition.new(daily_condition_params)
+    @condition = current_user.daily_conditions.build(daily_condition_params)
     if @condition.save
       redirect_to daily_condition_path(@condition.id)
     else

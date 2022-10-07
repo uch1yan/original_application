@@ -1,2 +1,6 @@
-<h1>Kids#edit</h1>
-<p>Find me in app/views/kids/edit.html.erb</p>
+<h1>マイキッズの編集</h1>
+
+<%= render 'form', kid: @kid %>
+
+<%= link_to 'Show', @kid %> |
+<%= link_to 'Back', kids_path %>
