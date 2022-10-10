@@ -12,8 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date %>
+    <%= form.label :キッズ名 %><br>
+    <%= form.collection_select(:kid_id, Kid.all, :id,:kid_name )%>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time %>
   </div>
 
   <div class="field">
@@ -24,11 +29,6 @@
   <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :kid_id %>
-    <%= form.text_field :kid_id %>
   </div>
 
   <div class="actions">
