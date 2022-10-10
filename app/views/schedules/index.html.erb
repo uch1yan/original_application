@@ -1,33 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Schedules</h1>
+<h1>スケジュール</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Kid</th>
+      <th>日付</th>
+      <th>タイトル</th>
+      <th>内容</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
+
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
-        <td><%= schedule.date %></td>
+        <td><%= schedule.start_time.strftime("%Y-%m-%d %H:%M") %></td>
         <td><%= schedule.title %></td>
         <td><%= schedule.content %></td>
-        <td><%= schedule.kid_id %></td>
-        <td><%= link_to 'Show', schedule %></td>
-        <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-        <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', schedule %></td>
+        <td><%= link_to '編集', edit_schedule_path(schedule) %></td>
+        <td><%= link_to '削除', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
 <%= link_to 'New Schedule', new_schedule_path %>
+
+<%= month_calendar events: @schedules do |date, schedules| %>
+  <%= date.day %>
+  <div>
+    <% schedules.each do |schedule| %>
+      <%= link_to schedule.title, schedule %>
+    <% end %>
+  </div>
+<% end %>
+
+<p>あいまい検索</p>
+<%= search_form_for @q, url: search_schedules_path do |f| %>
+  <%= f.label :title_or_content_cont, 'タイトル' %>
+  <%= f.search_field :title_or_content_cont %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
