@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[ show edit update destroy ]
-
+  before_action :set_q, only: [:index, :search]
   def index
     @schedules = Schedule.all
   end
@@ -56,14 +56,21 @@ class SchedulesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_schedule
-      @schedule = Schedule.find(params[:id])
-    end
+  def search
+    @results = @q.result
+  end
 
-    # Only allow a list of trusted parameters through.
-    def schedule_params
-      params.require(:schedule).permit(:title, :content, :start_time, :kid_id)
-    end
+  private
+
+  def set_q
+    @q = Schedule.ransack(params[:q])
+  end
+    
+  def set_schedule
+    @schedule = Schedule.find(params[:id])
+  end
+
+  def schedule_params
+    params.require(:schedule).permit(:title, :content, :date, :kid_id)
+  end
 end
