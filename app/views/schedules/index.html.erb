@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>スケジュール</h1>
+<p>あいまい検索</p>
+<%= search_form_for @q, url: search_schedules_path do |f| %>
+  <%= f.label :title_or_content_cont, 'タイトル' %>
+  <%= f.search_field :title_or_content_cont %>
+  <%= f.submit '検索' %>
+  <br>
 
 <table>
   <thead>
@@ -39,10 +45,4 @@
   </div>
 <% end %>
 
-<p>あいまい検索</p>
-<%= search_form_for @q, url: search_schedules_path do |f| %>
-  <%= f.label :title_or_content_cont, 'タイトル' %>
-  <%= f.search_field :title_or_content_cont %>
-  <br>
-  <%= f.submit '検索' %>
 <% end %>
