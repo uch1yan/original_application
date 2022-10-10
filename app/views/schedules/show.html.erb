@@ -1,24 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>日時:</strong>
+  <%= @schedule.start_time.strftime("%Y-%m-%d %H:%M") %>
+</p>
+
+<p>
+  <strong>タイトル:</strong>
   <%= @schedule.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>内容:</strong>
   <%= @schedule.content %>
 </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @schedule.date %>
-</p>
 
-<p>
-  <strong>Kid:</strong>
-  <%= @schedule.kid_id %>
-</p>
-
-<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-<%= link_to 'Back', schedules_path %>
+<%= link_to '編集', edit_schedule_path(@schedule) %> |
+<%= link_to '戻る', schedules_path %>
