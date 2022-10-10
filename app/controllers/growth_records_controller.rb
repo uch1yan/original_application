@@ -8,6 +8,8 @@ class GrowthRecordsController < ApplicationController
 
   # GET /growth_records/1 or /growth_records/1.json
   def show
+    @growth_records = GrowthRecord.all
+
   end
 
   # GET /growth_records/new

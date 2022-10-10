@@ -1,4 +1,5 @@
 class KidsController < ApplicationController
+  before_action :set_family, only: %i[ new create edit update ]
   def new
     @kid = Kid.new
   end
@@ -49,7 +50,11 @@ class KidsController < ApplicationController
 
   private
 
+  def set_family
+    @families = current_user.family
+  end
+
   def kid_params
-    params.require(:kid).permit(:kid_name, :date_of_birth, :avatar)
+    params.require(:kid).permit(:family_id, :kid_name, :date_of_birth, :avatar)
   end
 end
