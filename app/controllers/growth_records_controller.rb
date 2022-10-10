@@ -1,15 +1,15 @@
 class GrowthRecordsController < ApplicationController
-  before_action :set_growth_record, only: %i[ show edit update destroy ]
+  before_action :set_growth_record, only: %i[ edit update destroy ]
 
   # GET /growth_records or /growth_records.json
   def index
     @growth_records = GrowthRecord.all
+    @growth_data = GrowthRecord.all
   end
 
   # GET /growth_records/1 or /growth_records/1.json
   def show
     @growth_records = GrowthRecord.all
-
   end
 
   # GET /growth_records/new
