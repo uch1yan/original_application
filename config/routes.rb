@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  resources :growth_records
   root "users#show"
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
   resources :users, only: %i[ show edit update ]
+  resources :posts
+  resources :growth_records
   resources :kids
   resources :schedules do
     collection do
