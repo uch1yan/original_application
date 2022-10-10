@@ -1,0 +1,15 @@
+<h1>成長記録の詳細</h1>
+
+<% @growth_records.each do |growth_record| %>
+  <tr>
+    <td><%= growth_record.date %></td>
+    <td><%= growth_record.height %></td>
+    <td><%= growth_record.weight %></td>
+  </tr>
+<% end %>
+    
+
+<%= link_to '編集', edit_growth_record_path(@growth_record) %> |
+<%= link_to '削除', growth_record_path(@growth_record) %> |
+
+<%= link_to 'Back', growth_records_path %>

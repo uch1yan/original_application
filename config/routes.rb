@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :growth_records
   root "users#show"
   devise_for :users, controllers: {
     sessions: 'users/sessions',
