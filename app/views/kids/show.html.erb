@@ -10,6 +10,12 @@
   <%= @kid.date_of_birth %>
 </p>
 
+<p>
+  <strong>アイコン:</strong>
+  <%= image_tag @kid.avatar.url %>
+</p>
+
+
 <%= link_to '編集', edit_kid_path(@kid) %> |
 <%= button_to "削除", kid_path(@kid.id), method: :delete %>
 

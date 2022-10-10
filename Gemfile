@@ -18,6 +18,8 @@ gem "simple_calendar", "~> 2.4"
 gem "chartkick"
 gem 'devise'
 gem 'rails_admin'
+gem 'carrierwave'
+gem 'mini_magick'
 
 
 group :development, :test do
