@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :growth_records
   root "users#show"
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[ show edit update ]
   resources :kids
   resources :schedules
+  resources :families
   resources :daily_conditions do
     resources :comments
   end

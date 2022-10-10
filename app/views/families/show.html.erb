@@ -1,0 +1,11 @@
+<h1>家族の詳細</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>家族名:</strong>
+  <%= @family.name %>
+</p>
+
+<%= link_to '編集', edit_family_path(@family) %> |
+<%= link_to '前の画面に戻る', families_path %>

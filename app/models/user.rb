@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :comments
+  belongs_to :family
   validates :name, presence: true
 
   # Include default devise modules. Others available are:
