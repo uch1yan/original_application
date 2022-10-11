@@ -18,5 +18,7 @@
 
 <%= link_to '編集', edit_kid_path(@kid) %> |
 <%= button_to "削除", kid_path(@kid.id), method: :delete %>
+<%= link_to 'マイページに戻る', user_path(current_user) %> |
+
 
 
