@@ -13,6 +13,30 @@
   <body>
     <% if user_signed_in? %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+
+      <div class="collapse navbar-collapse" id="Navber">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">今日の様子</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">成長記録</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">予防接種</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">カレンダー</a>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </nav>
+
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
       <%= link_to "ログイン", new_user_session_path %>
