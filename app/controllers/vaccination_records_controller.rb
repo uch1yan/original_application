@@ -1,0 +1,2 @@
+class VaccinationRecordsController < ApplicationController
+end

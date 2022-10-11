@@ -1,0 +1,2 @@
+module VaccinationRecordsHelper
+end

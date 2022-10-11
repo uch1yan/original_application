@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_11_062835) do
+ActiveRecord::Schema.define(version: 2022_10_11_084443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "checks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "vaccination_record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_checks_on_user_id"
+    t.index ["vaccination_record_id"], name: "index_checks_on_vaccination_record_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.bigint "daily_condition_id", null: false
@@ -102,6 +111,17 @@ ActiveRecord::Schema.define(version: 2022_10_11_062835) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vaccination_records", force: :cascade do |t|
+    t.string "name"
+    t.string "count"
+    t.string "expected_date"
+    t.date "inplemented_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "checks", "users"
+  add_foreign_key "checks", "vaccination_records"
   add_foreign_key "comments", "daily_conditions"
   add_foreign_key "comments", "users"
   add_foreign_key "groups", "families"
