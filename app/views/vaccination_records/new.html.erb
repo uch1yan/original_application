@@ -1,26 +1,5 @@
-<%= form_with(model: @vaccine) do |form| %>
+<h1>予防接種の登録</h1>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<%= render 'form', vaccination_record: @vaccine %>
 
-  <div class="field">
-    <%= form.label :count %>
-    <%= form.text_field :count %>
-  </div>
-
-  <div class="field">
-    <%= form.label :expected_date %>
-    <%= form.text_field :expected_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :inplemented_date %>
-    <%= form.date_field :inplemented_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= link_to 'Back', vaccination_records_path %>

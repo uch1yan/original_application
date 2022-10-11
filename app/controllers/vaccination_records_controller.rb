@@ -17,6 +17,30 @@ class VaccinationRecordsController < ApplicationController
     end
   end
 
+  def edit
+    @vaccine = VaccinationRecord.find(params[:id])
+    @check = current_user.checks.find_by(vaccination_record_id: @vaccine.id)
+  end
+
+  def update
+    respond_to do |format|
+      if @vaccine.update(vaccine_params)
+        format.html { redirect_to vaccine_url(@vaccine), notice: "vaccine was successfully updated." }
+        format.json { render :show, status: :ok, location: @vaccine }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @vaccine.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
+  def show
+    @vaccine = VaccinationRecord.find(params[:id])
+    @check = current_user.checks.find_by(vaccination_record_id: @vaccine.id)
+  end
+
 
   private
 
