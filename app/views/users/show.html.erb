@@ -10,13 +10,15 @@
   <%= @user.admin %>
 </p>
 
-<%= link_to '編集', edit_user_path(@user) %> |
+<% if current_user.families.first.present? %>
+<p>
+  <strong>家族名</strong>
+  <%= current_user.families.first.name %>
+</p>
+<% else %>
+  <%= link_to "家族名の登録", new_family_path%><br>
+<% end %>
 
-  <% if current_user.family_id.present? %>
-    <p>
-      <strong>家族名</strong>
-      <%= current_user.family.name %>
-    </p>
-  <% else %>
-    <%= link_to "家族名の登録", new_family_path%><br>
-  <% end %>
+<%= link_to '編集', edit_user_path(@user) %> 
+<%= link_to 'マイキッズの登録', new_kid_path %> 
+

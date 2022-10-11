@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= link_to '今日の様子を登録する', new_daily_condition_path %>
+
+<%= month_calendar events: @conditions do |date, conditions| %>
+  <%= date.day %>
+  <div>
+    <% conditions.each do |condition| %>
+      <%= link_to condition.mood, condition %>
+    <% end %>
+  </div>
+<% end %>
+

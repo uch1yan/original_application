@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_10_135827) do
+ActiveRecord::Schema.define(version: 2022_10_11_084443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "checks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "vaccination_record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_checks_on_user_id"
+    t.index ["vaccination_record_id"], name: "index_checks_on_vaccination_record_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.bigint "daily_condition_id", null: false
@@ -26,7 +35,7 @@ ActiveRecord::Schema.define(version: 2022_10_10_135827) do
   end
 
   create_table "daily_conditions", force: :cascade do |t|
-    t.datetime "date", null: false
+    t.datetime "start_time", null: false
     t.integer "mood", null: false
     t.string "temperature"
     t.integer "toilet", null: false
@@ -40,6 +49,15 @@ ActiveRecord::Schema.define(version: 2022_10_10_135827) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "family_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["family_id"], name: "index_groups_on_family_id"
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "growth_records", force: :cascade do |t|
@@ -89,16 +107,26 @@ ActiveRecord::Schema.define(version: 2022_10_10_135827) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "family_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["family_id"], name: "index_users_on_family_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vaccination_records", force: :cascade do |t|
+    t.string "name"
+    t.string "count"
+    t.string "expected_date"
+    t.date "inplemented_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "checks", "users"
+  add_foreign_key "checks", "vaccination_records"
   add_foreign_key "comments", "daily_conditions"
   add_foreign_key "comments", "users"
+  add_foreign_key "groups", "families"
+  add_foreign_key "groups", "users"
   add_foreign_key "growth_records", "kids"
   add_foreign_key "kids", "families"
   add_foreign_key "schedules", "kids"
-  add_foreign_key "users", "families"
 end

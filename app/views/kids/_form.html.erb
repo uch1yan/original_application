@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :家族名 %><br>
-    <%= form.collection_select(:family_id, Family.all, :id,:name )%>
-  </div>
-
-  <div class="field">
     <%= form.label :kid_name %>
     <%= form.text_field :kid_name %>
   </div>
@@ -31,6 +26,7 @@
     <%= form.file_field :avatar %>
   </div>
 
+  <%= form.hidden_field :family_id, :value => current_user.families.first.id %>
   
   <div class="actions">
     <%= form.submit %>

@@ -24,14 +24,12 @@ class FamiliesController < ApplicationController
   # POST /familys or /familys.json
   def create
     @family = Family.new(family_params)
-    respond_to do |format|
-      if @family.save
-        format.html { redirect_to family_url(@family), notice: "Family was successfully created." }
-        format.json { render :show, status: :created, location: @family }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @family.errors, status: :unprocessable_entity }
-      end
+    @family.save
+    @group = Group.new
+    @group.user_id = current_user.id
+    @group.family_id = Family.last.id
+    if @group.save
+      redirect_to user_path(current_user), notice: "作成しました"
     end
   end
 
