@@ -1,0 +1,11 @@
+<h1>予防接種の編集</h1>
+
+<%= render 'form', vaccination_record: @vaccine %>
+
+<%= link_to 'Back', vaccination_records_path %>
+
+  <% if @check.present? %>
+    <%= link_to 'お気に入り解除する', check_path(id: @check.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入りする', checks_path(vaccine_id: @vaccine.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
