@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :growth_records
   resources :kids
+  resources :vaccination_records
   resources :schedules do
     collection do
       get 'search'
