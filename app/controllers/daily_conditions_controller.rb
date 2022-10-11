@@ -1,4 +1,9 @@
 class DailyConditionsController < ApplicationController
+  
+  def index
+    @conditions = DailyCondition.all
+  end
+  
   def new
     @condition = DailyCondition.new
   end
@@ -34,7 +39,7 @@ class DailyConditionsController < ApplicationController
 
   private
     def daily_condition_params
-      params.require(:daily_condition).permit(:date, :mood, :temperature, :toilet, :sleep, :comment)
+      params.require(:daily_condition).permit(:start_time, :mood, :temperature, :toilet, :sleep, :comment)
     end
 
 

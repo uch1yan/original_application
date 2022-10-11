@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_11_041622) do
+ActiveRecord::Schema.define(version: 2022_10_11_062835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_10_11_041622) do
   end
 
   create_table "daily_conditions", force: :cascade do |t|
-    t.datetime "date", null: false
+    t.datetime "start_time", null: false
     t.integer "mood", null: false
     t.string "temperature"
     t.integer "toilet", null: false
