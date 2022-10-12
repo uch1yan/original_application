@@ -16,8 +16,8 @@
     <table>
       <tr>
         <div class="field">
-          <%= form.label :date %>
-          <%= form.datetime_field :date %>
+          <%= form.label :start_time %>
+          <%= form.datetime_field :start_time %>
         </div>
       </tr>
 
@@ -56,6 +56,8 @@
         </div>
       </tr>
     </table>
+  
+  <%= form.hidden_field :kid_id, :value => Kid.first.id %>
 
     <%= form.submit '登録' %></p>
 

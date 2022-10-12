@@ -1,5 +1,6 @@
 class Kid < ApplicationRecord
   belongs_to :family
+  has_many :daily_conditions, dependent: :destroy
   has_many :growth_records, dependent: :destroy
   has_many :schedules, dependent: :destroy 
   validates :kid_name, presence: true

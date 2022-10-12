@@ -9,7 +9,9 @@ class DailyConditionsController < ApplicationController
   end
 
   def create
-    @condition = current_user.daily_conditions.build(daily_condition_params)
+    # @condition = current_user.daily_conditions.build(daily_condition_params)
+    @condition = DailyCondition.new(daily_condition_params)
+
     if @condition.save
       redirect_to daily_condition_path(@condition.id)
     else
@@ -39,7 +41,7 @@ class DailyConditionsController < ApplicationController
 
   private
     def daily_condition_params
-      params.require(:daily_condition).permit(:start_time, :mood, :temperature, :toilet, :sleep, :comment)
+      params.require(:daily_condition).permit(:start_time, :mood, :temperature, :toilet, :sleep, :comment, :kid_id)
     end
 
 

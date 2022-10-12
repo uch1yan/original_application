@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_11_084443) do
+ActiveRecord::Schema.define(version: 2022_10_12_122444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2022_10_11_084443) do
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "kid_id"
+    t.index ["kid_id"], name: "index_daily_conditions_on_kid_id"
   end
 
   create_table "families", force: :cascade do |t|
@@ -124,6 +126,7 @@ ActiveRecord::Schema.define(version: 2022_10_11_084443) do
   add_foreign_key "checks", "vaccination_records"
   add_foreign_key "comments", "daily_conditions"
   add_foreign_key "comments", "users"
+  add_foreign_key "daily_conditions", "kids"
   add_foreign_key "groups", "families"
   add_foreign_key "groups", "users"
   add_foreign_key "growth_records", "kids"
