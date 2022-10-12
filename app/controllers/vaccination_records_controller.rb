@@ -2,7 +2,8 @@ class VaccinationRecordsController < ApplicationController
   
   def index
     @vaccines = VaccinationRecord.all
-    @vaccine = VaccinationRecord.all.order(name: "ASC")
+    @q = VaccinationRecord.ransack(params[:q])
+    @vaccines = @q.result(distinct: true)
   end
 
   def new
