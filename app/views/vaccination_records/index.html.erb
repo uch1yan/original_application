@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>予防接種の記録</h1>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont, "キーワード検索" %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ワクチン名 /</th>
+      <th>接種回数 /</th>
+      <th>接種時期 /</th>
+      <th>接種日</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vaccines.each do |vaccine| %>
+      <tr>
+        <td><%= vaccine.name %></td>
+        <td><%= vaccine.count %></td>
+        <td><%= vaccine.expected_date %></td>
+        <td><%= vaccine.inplemented_date %></td>
+        <td><%= link_to '編集', edit_vaccination_record_path(vaccine) %></td>
+        <td><%= link_to '詳細', vaccination_record_path(vaccine.id) %></td>
+        <td><%= link_to '削除', vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規登録する', new_vaccination_record_path %> 

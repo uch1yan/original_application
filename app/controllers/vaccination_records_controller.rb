@@ -1,14 +1,19 @@
 class VaccinationRecordsController < ApplicationController
+  
+  def index
+    @vaccines = VaccinationRecord.all
+    @vaccine = VaccinationRecord.all.order(name: "ASC")
+  end
 
   def new
     @vaccine = VaccinationRecord.new
   end
-
+  
   def create
     @vaccine = VaccinationRecord.new(vaccine_params)
     respond_to do |format|
       if @vaccine.save
-        format.html { redirect_to vaccine_url(@vaccine), notice: "vaccine was successfully created." }
+        format.html { redirect_to vaccination_record_path(@vaccine), notice: "vaccine was successfully created." }
         format.json { render :show, status: :created, location: @vaccine }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -16,10 +21,15 @@ class VaccinationRecordsController < ApplicationController
       end
     end
   end
+  
+  def show
+    @vaccine = VaccinationRecord.find(params[:id])
+    # @check = current_user.checks.find_by(vaccination_record_id: @vaccine.id)
+  end
 
   def edit
     @vaccine = VaccinationRecord.find(params[:id])
-    @check = current_user.checks.find_by(vaccination_record_id: @vaccine.id)
+    # @check = current_user.checks.find_by(vaccination_record_id: @vaccine.id)
   end
 
   def update
@@ -36,12 +46,7 @@ class VaccinationRecordsController < ApplicationController
 
 
 
-  def show
-    @vaccine = VaccinationRecord.find(params[:id])
-    @check = current_user.checks.find_by(vaccination_record_id: @vaccine.id)
-  end
-
-
+  
   private
 
   def vaccine_params

@@ -1,0 +1,26 @@
+<%= form_with(model: @vaccine) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.select :name, VaccinationRecord.names.keys, include_blank: "選択してください" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :count %>
+    <%= form.select :count, VaccinationRecord.counts.keys, include_blank: "選択してください" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expected_date %>
+    <%= form.text_field :expected_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inplemented_date %>
+    <%= form.date_field :inplemented_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

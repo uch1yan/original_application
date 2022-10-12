@@ -1,0 +1,1 @@
+$('#vaccination_record_<%= @vaccine.id %>').html("<%= j(render partial: "checks/check",  locals: { vaccination_record: @vaccine, check: @check }) %>");

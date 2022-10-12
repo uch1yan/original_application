@@ -285,6 +285,8 @@ GEM
     semantic_range (3.0.0)
     simple_calendar (2.4.3)
       rails (>= 3.0)
+    socialization (2.0.1)
+      activerecord
     spring (4.1.0)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
@@ -364,6 +366,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   simple_calendar (~> 2.4)
+  socialization
   spring
   spring-commands-rspec
   turbolinks (~> 5)

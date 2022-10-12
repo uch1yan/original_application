@@ -21,6 +21,7 @@ gem 'rails_admin'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'
+gem 'socialization'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
