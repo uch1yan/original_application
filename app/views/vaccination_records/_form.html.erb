@@ -2,12 +2,12 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.select :name, VaccinationRecord.names.keys, include_blank: "選択してください" %>
   </div>
 
   <div class="field">
     <%= form.label :count %>
-    <%= form.text_field :count %>
+    <%= form.select :count, VaccinationRecord.counts.keys, include_blank: "選択してください" %>
   </div>
 
   <div class="field">

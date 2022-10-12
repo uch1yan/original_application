@@ -1,5 +1,10 @@
 class VaccinationRecordsController < ApplicationController
   
+  def index
+    @vaccines = VaccinationRecord.all
+    @vaccine = VaccinationRecord.all.order(name: "ASC")
+  end
+
   def new
     @vaccine = VaccinationRecord.new
   end
@@ -8,7 +13,7 @@ class VaccinationRecordsController < ApplicationController
     @vaccine = VaccinationRecord.new(vaccine_params)
     respond_to do |format|
       if @vaccine.save
-        format.html { redirect_to vaccine_url(@vaccine), notice: "vaccine was successfully created." }
+        format.html { redirect_to vaccination_record_path(@vaccine), notice: "vaccine was successfully created." }
         format.json { render :show, status: :created, location: @vaccine }
       else
         format.html { render :new, status: :unprocessable_entity }
