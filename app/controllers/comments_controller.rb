@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_condition, only: %i[ create edit update ]
   def create
     @condition = DailyCondition.find(params[:daily_condition_id])

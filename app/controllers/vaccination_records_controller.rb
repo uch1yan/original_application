@@ -1,4 +1,5 @@
 class VaccinationRecordsController < ApplicationController
+  before_action :authenticate_user!
   
   def index
     @vaccines = VaccinationRecord.all
