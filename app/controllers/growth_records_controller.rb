@@ -1,4 +1,5 @@
 class GrowthRecordsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_growth_record, only: %i[ edit update destroy ]
 
   # GET /growth_records or /growth_records.json

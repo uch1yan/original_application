@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  resources :users, only: %i[ show edit update ]
+  devise_scope :user do
+    get 'users/sign_out', to: 'devise/sessions#destroy'
+  end
+  
+  resources :users, only: %i[ show edit update destroy ]
   resources :posts
   resources :growth_records
   resources :kids
