@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "users#show"
+  resources :checks
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
@@ -8,8 +9,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :growth_records
   resources :kids
-  resources :vaccination_records
-  resources :checks, only: %i[ create destroy ]
+  resources :vaccination_records 
   resources :schedules do
     collection do
       get 'search'

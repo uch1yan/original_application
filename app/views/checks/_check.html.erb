@@ -1,0 +1,11 @@
+  <% if check.present? %>
+    <p class="sm:pt-1"><%= link_to check_path(id: check.id, vaccination_record_id: vaccination_record.id), method: :delete, remote: true do %>
+      <i class="fas fa-heart fa-lg" style="color:red;"></i>
+    <% end %></p>
+  <% else %>
+    <p>
+      <%= link_to checks_path(vaccination_record_id: vaccination_record.id), method: :post, remote: true do %>
+        <i class="far fa-heart fa-lg"></i>
+      <% end %>
+    </p>
+  <% end %>

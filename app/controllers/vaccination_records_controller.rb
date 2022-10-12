@@ -1,9 +1,9 @@
 class VaccinationRecordsController < ApplicationController
-
+  
   def new
     @vaccine = VaccinationRecord.new
   end
-
+  
   def create
     @vaccine = VaccinationRecord.new(vaccine_params)
     respond_to do |format|
@@ -16,10 +16,15 @@ class VaccinationRecordsController < ApplicationController
       end
     end
   end
+  
+  def show
+    @vaccine = VaccinationRecord.find(params[:id])
+    # @check = current_user.checks.find_by(vaccination_record_id: @vaccine.id)
+  end
 
   def edit
     @vaccine = VaccinationRecord.find(params[:id])
-    @check = current_user.checks.find_by(vaccination_record_id: @vaccine.id)
+    # @check = current_user.checks.find_by(vaccination_record_id: @vaccine.id)
   end
 
   def update
@@ -36,12 +41,7 @@ class VaccinationRecordsController < ApplicationController
 
 
 
-  def show
-    @vaccine = VaccinationRecord.find(params[:id])
-    @check = current_user.checks.find_by(vaccination_record_id: @vaccine.id)
-  end
-
-
+  
   private
 
   def vaccine_params

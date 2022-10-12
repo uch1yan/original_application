@@ -1,11 +1,18 @@
 class ChecksController < ApplicationController
+  before_action :find_vaccination_record, only: %i[create destroy]
+
   def create
-    check = current_user.checks.create(vaccination_record_id: params[:vaccination_record_id])
-    # redirect_to edit_vaccination_record_path(@vaccine.id)
+    @check = current_user.checks.create(vaccination_record_id: params[:vaccination_record_id])
   end
 
   def destroy
-    check = current_user.checks.find_by(id: params[:id]).destroy
-    # redirect_to edit_vaccination_record_path(@vaccine.id)
+    current_user.checks.find_by(id: params[:id]).destroy
+  end
+
+  private
+
+  def find_vaccination_record
+    @vaccine = VaccinationRecord.find(params[:vaccination_record_id])
   end
 end
+

@@ -1,0 +1,21 @@
+  <%= link_to check_vaccination_record_path do %>
+  <% if current_user.likes?(@vaccine) %>
+    お気に入り解除
+  <% else %>
+    お気に入り登録
+  <% end %>
+<% end %> 
+ 
+
+  
+  
+  
+
+  
+  <%=begin %><% if @check.present? %>
+    <%= link_to check_path(id: @check.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to checks_path(vaccination_record_id: @vaccine.id), method: :post do %>
+      <i class="fa-solid fa-circle-check"></i>
+    <% end %>
+  <% end %><%=end %>
