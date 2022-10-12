@@ -24,7 +24,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to schedule_url(@schedule), notice: "Schedule was successfully created." }
+        format.html { redirect_to schedules_url, notice: "Schedule was successfully created." }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new, status: :unprocessable_entity }

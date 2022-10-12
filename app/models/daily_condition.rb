@@ -1,6 +1,7 @@
 class DailyCondition < ApplicationRecord
   has_many :comments, dependent: :destroy
-  validates :date, presence: true
+  belongs_to :kid
+  validates :start_time, presence: true
   validates :mood, presence: true
   validates :toilet, presence: true
   validates :sleep, presence: true
