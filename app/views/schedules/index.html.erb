@@ -9,6 +9,7 @@
 <table>
   <thead>
     <tr>
+      <th>子供</th>
       <th>日付</th>
       <th>タイトル</th>
       <th>内容</th>
@@ -19,7 +20,9 @@
 
   <tbody>
     <% @schedules.each do |schedule| %>
+      <% if schedule.kid.family.id == current_user.families.first.id %>
       <tr>
+        <td><%= schedule.kid.kid_name %></td>
         <td><%= schedule.start_time.strftime("%Y-%m-%d %H:%M") %></td>
         <td><%= schedule.title %></td>
         <td><%= schedule.content %></td>
@@ -27,6 +30,7 @@
         <td><%= link_to '編集', edit_schedule_path(schedule) %></td>
         <td><%= link_to '削除', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -38,7 +42,9 @@
   <%= date.day %>
   <div>
     <% schedules.each do |schedule| %>
-      <%= link_to schedule.title, schedule %>
+      <% if schedule.kid.family.id == current_user.families.first.id %>
+        <%= link_to schedule.title, schedule %>
+      <% end %>
     <% end %>
   </div>
 <% end %>

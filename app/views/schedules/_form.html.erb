@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :キッズ名 %><br>
-    <%= form.collection_select(:kid_id, Kid.all, :id,:kid_name )%>
+    <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
   </div>
 
   <div class="field">
@@ -30,6 +30,8 @@
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
+
+  <%= form.hidden_field :family_id, :value => current_user.family_ids %>
 
   <div class="actions">
     <%= form.submit %>
