@@ -17,11 +17,12 @@ gem 'jquery-rails'
 gem "simple_calendar", "~> 2.4"
 gem "chartkick"
 gem 'devise'
-gem 'rails_admin'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'
 gem 'socialization'
+gem 'cancancan'
+gem 'rails_admin', '~> 3.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
