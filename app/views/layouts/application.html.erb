@@ -36,6 +36,12 @@
             <li class="nav-item">
               <a class="nav-link" href="http://localhost:3000/users/sign_out">ログアウト</a>
             </li>
+            <% if current_user.admin? %>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:3000/admin">管理者画面</a>
+            </li>
+            <% end %>
+
           </ul>
         </div>
       </div>
