@@ -2,6 +2,7 @@ class SchedulesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_schedule, only: %i[ show edit update destroy ]
   before_action :set_q, only: [:index, :search]
+  before_action :set_kid, only: %i[ new create edit update ]
   
   def index
     @schedules = Schedule.all
@@ -70,6 +71,10 @@ class SchedulesController < ApplicationController
     
   def set_schedule
     @schedule = Schedule.find(params[:id])
+  end
+
+  def set_kid
+    @kids = current_user.families.first.kids
   end
 
   def schedule_params
