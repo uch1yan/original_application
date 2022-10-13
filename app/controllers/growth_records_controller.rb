@@ -7,6 +7,8 @@ class GrowthRecordsController < ApplicationController
   def index
     @growth_records = GrowthRecord.all
     @growth_data = GrowthRecord.all
+    # @growth_data = GrowthRecord.where(kid: Kid.where(family: Family.where(users: current_user)))
+    @kids = current_user.families.first.kids
   end
 
   # GET /growth_records/1 or /growth_records/1.json
