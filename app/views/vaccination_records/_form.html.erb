@@ -1,6 +1,11 @@
 <%= form_with(model: @vaccine) do |form| %>
 
   <div class="field">
+    <%= form.label :キッズ名 %><br>
+    <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
+  </div>
+
+  <div class="field">
     <%= form.label :name %>
     <%= form.select :name, VaccinationRecord.names.keys, include_blank: "選択してください" %>
   </div>

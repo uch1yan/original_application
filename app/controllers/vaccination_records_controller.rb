@@ -1,5 +1,6 @@
 class VaccinationRecordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_kid, only: %i[ new create edit update ]
   
   def index
     @vaccines = VaccinationRecord.all
@@ -54,4 +55,9 @@ class VaccinationRecordsController < ApplicationController
   def vaccine_params
     params.require(:vaccination_record).permit(:name, :count, :expected_date, :inplemented_date)
   end
+
+  def set_kid
+    @kids = current_user.families.first.kids
+  end
+
 end
