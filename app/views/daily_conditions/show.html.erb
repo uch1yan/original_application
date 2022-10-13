@@ -9,6 +9,7 @@
   <p><strong>コメント：</strong>  <%= @condition.comment %></p>
 
   <%= link_to '編集', edit_daily_condition_path(@condition.id) %>
+  <%= link_to '削除', daily_condition_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 
   <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->

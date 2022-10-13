@@ -36,9 +36,10 @@ class VaccinationRecordsController < ApplicationController
   end
 
   def update
+    @vaccine = VaccinationRecord.find(params[:id])
     respond_to do |format|
       if @vaccine.update(vaccine_params)
-        format.html { redirect_to vaccine_url(@vaccine), notice: "vaccine was successfully updated." }
+        format.html { redirect_to vaccination_records_url, notice: "vaccine was successfully updated." }
         format.json { render :show, status: :ok, location: @vaccine }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -46,6 +47,16 @@ class VaccinationRecordsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @vaccine = VaccinationRecord.find(params[:id])
+    @vaccine.destroy
+    respond_to do |format|
+      format.html { redirect_to vaccination_records_url, notice: "The record was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
 
 
 

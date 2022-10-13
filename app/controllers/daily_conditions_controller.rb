@@ -11,11 +11,9 @@ class DailyConditionsController < ApplicationController
   end
 
   def create
-    # @condition = current_user.daily_conditions.build(daily_condition_params)
     @condition = DailyCondition.new(daily_condition_params)
-
     if @condition.save
-      redirect_to daily_condition_path(@condition.id)
+      redirect_to daily_conditions_path
     else
       render :new
     end
@@ -40,6 +38,16 @@ class DailyConditionsController < ApplicationController
     @comments = @condition.comments
     @comment = @condition.comments.build
   end
+
+  def destroy
+    @condition = DailyCondition.find(params[:id])
+    @condition.destroy
+    respond_to do |format|
+      format.html { redirect_to daily_conditions_url, notice: "The data was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
 
   private
     def daily_condition_params
