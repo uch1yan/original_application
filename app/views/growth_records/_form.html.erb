@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :キッズ %><br>
-    <%= form.collection_select(:kid_id, Kid.all, :id,:kid_name )%>
+    <%= form.label :キッズ名 %><br>
+    <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
   </div>
 
   <div class="field">

@@ -1,5 +1,6 @@
 class DailyConditionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_kid, only: %i[ new create show edit update ]
   
   def index
     @conditions = DailyCondition.all
@@ -45,5 +46,7 @@ class DailyConditionsController < ApplicationController
       params.require(:daily_condition).permit(:start_time, :mood, :temperature, :toilet, :sleep, :comment, :kid_id)
     end
 
-
+    def set_kid
+      @kids = current_user.families.first.kids
+    end
 end

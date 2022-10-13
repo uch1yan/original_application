@@ -16,6 +16,13 @@
     <table>
       <tr>
         <div class="field">
+          <%= form.label :キッズ名 %>
+          <%= form.collection_select(:kid_id, @kids, :id,:kid_name ) %>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="field">
           <%= form.label :start_time %>
           <%= form.datetime_field :start_time %>
         </div>
@@ -57,8 +64,6 @@
       </tr>
     </table>
   
-  <%= form.hidden_field :kid_id, :value => Kid.first.id %>
-
     <%= form.submit '登録' %></p>
 
   </div>

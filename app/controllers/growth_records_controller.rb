@@ -1,6 +1,7 @@
 class GrowthRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_growth_record, only: %i[ edit update destroy ]
+  before_action :set_kid, only: %i[ new create edit update ]
 
   # GET /growth_records or /growth_records.json
   def index
@@ -65,6 +66,11 @@ class GrowthRecordsController < ApplicationController
     def set_growth_record
       @growth_record = GrowthRecord.find(params[:id])
     end
+
+    def set_kid
+      @kids = current_user.families.first.kids
+    end
+
 
     # Only allow a list of trusted parameters through.
     def growth_record_params

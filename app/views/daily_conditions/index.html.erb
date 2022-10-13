@@ -4,7 +4,9 @@
   <%= date.day %>
   <div>
     <% conditions.each do |condition| %>
-      <%= link_to condition.mood, condition %>
+      <% if condition.kid.family.id == current_user.families.first.id %>
+        /<%= link_to condition.kid.kid_name, condition %>
+      <% end %>
     <% end %>
   </div>
 <% end %>
