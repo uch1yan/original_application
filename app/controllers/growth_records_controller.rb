@@ -54,7 +54,6 @@ class GrowthRecordsController < ApplicationController
   # DELETE /growth_records/1 or /growth_records/1.json
   def destroy
     @growth_record.destroy
-
     respond_to do |format|
       format.html { redirect_to growth_records_url, notice: "Growth record was successfully destroyed." }
       format.json { head :no_content }
