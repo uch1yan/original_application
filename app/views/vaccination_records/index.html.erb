@@ -2,7 +2,8 @@
 
 <table>
   <thead>
-    <tr>
+  <tr>    
+    <th><%= sort_link(@q, :kid_name, "名前") %></th>
     <th><%= sort_link(@q, :name, "名前") %></th>
     <th><%= sort_link(@q, :count, "回数") %></th>
     <th><%= sort_link(@q, :expected_date, "接種時期") %></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @vaccines.each do |vaccine| %>
       <tr>
+        <td><%= vaccine.kid_records.ids %></td>
         <td><%= vaccine.name %></td>
         <td><%= vaccine.count %></td>
         <td><%= vaccine.expected_date %></td>
