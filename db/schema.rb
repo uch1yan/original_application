@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_12_122444) do
+ActiveRecord::Schema.define(version: 2022_10_14_023658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "checks", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "vaccination_record_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_checks_on_user_id"
-    t.index ["vaccination_record_id"], name: "index_checks_on_vaccination_record_id"
-  end
 
   create_table "comments", force: :cascade do |t|
     t.bigint "daily_condition_id", null: false
@@ -70,6 +61,15 @@ ActiveRecord::Schema.define(version: 2022_10_12_122444) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["kid_id"], name: "index_growth_records_on_kid_id"
+  end
+
+  create_table "kid_vaccination_records", force: :cascade do |t|
+    t.bigint "kid_id", null: false
+    t.bigint "vaccination_record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["kid_id"], name: "index_kid_vaccination_records_on_kid_id"
+    t.index ["vaccination_record_id"], name: "index_kid_vaccination_records_on_vaccination_record_id"
   end
 
   create_table "kids", force: :cascade do |t|
@@ -122,14 +122,14 @@ ActiveRecord::Schema.define(version: 2022_10_12_122444) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "checks", "users"
-  add_foreign_key "checks", "vaccination_records"
   add_foreign_key "comments", "daily_conditions"
   add_foreign_key "comments", "users"
   add_foreign_key "daily_conditions", "kids"
   add_foreign_key "groups", "families"
   add_foreign_key "groups", "users"
   add_foreign_key "growth_records", "kids"
+  add_foreign_key "kid_vaccination_records", "kids"
+  add_foreign_key "kid_vaccination_records", "vaccination_records"
   add_foreign_key "kids", "families"
   add_foreign_key "schedules", "kids"
 end
