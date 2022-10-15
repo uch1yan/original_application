@@ -40,14 +40,44 @@
 <%= link_to 'New Schedule', new_schedule_path %>
 
 <%= month_calendar events: @schedules do |date, schedules| %>
-  <%= date.day %>
-  <div>
+<%= date.day %>
+
+  <div class="cp_ipcheck">
+	<ul>
+		<li class="list_item">
+		<label>
+		<input type="checkbox" class="option-input05" checked />
+		ママ
+		</label>
+	
+		<label>
+		<input type="checkbox" class="option-input05" />
+		パパ
+		</label>
+		</li>
+
+
+  <%# <div class="pick_up">
+		<p class="check">
+      <label>
+        <input type="checkbox" class="checkbox" checked />ママ
+    
+        <input type="checkbox" class="checkbox" />パパ
+      </label>
+		</p>
+  </div>
+   %>
+  <%# <div class="example2">
+    <input type="checkbox" id="1" name="example2" ><label for="1">ママ</label>
+    <input type="checkbox" id="2" name="example2"><label for="2">パパ</label>
+  <div> %>
     <% schedules.each do |schedule| %>
       <% if schedule.kid.family.id == current_user.families.first.id %>
         <%= link_to schedule.title, schedule %>
       <% end %>
     <% end %>
-  </div>
 <% end %>
 
 <% end %>
+
+<%# <div class ="button"><i class="fa-regular fa-star"></i><i class="fa-regular fa-heart"></i></div> %>
