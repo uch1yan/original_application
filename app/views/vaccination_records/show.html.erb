@@ -5,10 +5,6 @@
   <p><strong>ワクチン名：</strong> <%= @vaccine.name %></p>
   <p><strong>接種回数：</strong> <%= @vaccine.count %> 
       (<%= @vaccine.expected_date %>) 
-<div id="vaccination_record_<%= @vaccine.id %>">
-  <%= render partial: 'checks/check', locals: { vaccination_record: @vaccine, check: @check } %>
-</div>
-
 
   <strong>接種日：</strong>  <%= @vaccine.inplemented_date %></p>
 
