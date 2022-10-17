@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 2022_10_14_023658) do
   end
 
   create_table "kid_vaccination_records", force: :cascade do |t|
+    t.integer "count"
+    t.date "inplemented_date"
     t.bigint "kid_id", null: false
     t.bigint "vaccination_record_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -115,9 +117,6 @@ ActiveRecord::Schema.define(version: 2022_10_14_023658) do
 
   create_table "vaccination_records", force: :cascade do |t|
     t.integer "name"
-    t.integer "count"
-    t.string "expected_date"
-    t.date "inplemented_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

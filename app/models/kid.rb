@@ -4,7 +4,7 @@ class Kid < ApplicationRecord
   has_many :growth_records, dependent: :destroy
   has_many :schedules, dependent: :destroy 
   has_many :kid_vaccination_records, dependent: :destroy
-  has_many :vaccine_records, through: :kid_vaccination_records, source: :vaccination_record
+  has_many :vaccination_records, through: :kid_vaccination_records
   validates :kid_name, presence: true
   validates :date_of_birth, presence: true
   validates :avatar, presence: true

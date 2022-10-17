@@ -7,23 +7,27 @@ class VaccinationRecordsController < ApplicationController
     @q = VaccinationRecord.ransack(params[:q])
     @vaccines = @q.result(distinct: true)
   end
-
+  
   def new
     @vaccine = VaccinationRecord.new
   end
   
   def create
     # @vaccine = current_user.families.first.kids.where(params[:kid_id]).vaccine_records.build(vaccine_params)
-    @vaccine = VaccinationRecord.new(vaccine_params)
-    respond_to do |format|
-      if @vaccine.save
-        format.html { redirect_to vaccination_record_path(@vaccine), notice: "vaccine was successfully created." }
-        format.json { render :show, status: :created, location: @vaccine }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @vaccine.errors, status: :unprocessable_entity }
-      end
-    end
+    # @vaccine = VaccinationRecord.new(vaccine_params)
+    current_kid = Kid.find(kid_params[:kid_id])
+
+    @vaccine = current_kid.kid_vaccination_records.create(vaccination_record_id: params[:vaccination_record_id])
+    redirect_to vaccination_record_path(@vaccine), notice: "vaccine was successfully created." 
+    
+    # respond_to do |format|
+    #   if @vaccine.save
+    #     format.json { render :show, status: :created, location: @vaccine }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @vaccine.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
   
   def show
@@ -55,15 +59,22 @@ class VaccinationRecordsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
   
   private
 
   def vaccine_params
-    params.require(:vaccination_record).permit(:name, :count, :expected_date, :inplemented_date)
+    params.require(:vaccination_record).permit(:name)
+  end
+
+  def kid_params
+    params.require(:vaccination_record).permit(:kid_id)
   end
 
   def set_kid
     @kids = current_user.families.first.kids
+    #アソシエーション要検討
   end
 
 end
