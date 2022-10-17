@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'kid_vaccination_rcords/new'
+  get 'kid_vaccination_rcords/create'
+  get 'kid_vaccination_rcords/edit'
+  get 'kid_vaccination_rcords/update'
   root "users#show"
   resources :checks
   devise_for :users, controllers: {
@@ -14,6 +18,7 @@ Rails.application.routes.draw do
   resources :growth_records
   resources :kids
   resources :vaccination_records 
+  resources :kid_vaccination_records
   resources :schedules do
     collection do
       get 'search'
