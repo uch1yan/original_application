@@ -1,27 +1,6 @@
-<h1>入力画面</h1>
-<%= form_with(model: @kid_vaccination_record) do |form| %>
+<h1>予防接種の登録</h1>
 
-  <div class="field">
-    <%= form.label :キッズ名 %><br>
-    <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
-  </div>
+<%= render 'form', kid_vaccination_record: @kid_vaccination_record %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.collection_select(:vaccination_record_id, VaccinationRecord.all, :id, :name )%>
-  </div>
+<%= link_to 'Back', kid_vaccination_records_path %>
 
-  <div class="field">
-    <%= form.label :count %>
-    <%= form.select :count, VaccinationRecord.counts.keys, include_blank: "選択してください" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :inplemented_date %>
-    <%= form.date_field :inplemented_date %>
-  </div>
-  
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

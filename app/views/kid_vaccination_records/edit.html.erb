@@ -1,2 +1,6 @@
-<h1>KidVaccinationRcords#edit</h1>
-<p>Find me in app/views/kid_vaccination_rcords/edit.html.erb</p>
+<h1>予防接種情報の編集</h1>
+
+<%= render 'form', kid_vaccination_record: @kid_vaccination_record %>
+
+<%= link_to 'Back', kid_vaccination_records_path %>
+
