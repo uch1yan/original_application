@@ -24,7 +24,7 @@ RSpec.describe '予防接種管理機能', type: :system do
         click_on 'commit'
     end 
 
-    context 'ユーザーが子供の予防接種記録を登録した場合' do
+    context '(登録)ユーザーが子供の予防接種記録を登録した場合' do
       it '登録ができ、一覧画面に表示されている' do
         visit new_kid_vaccination_record_path
         select '[kid_id]', from 'kid_vaccination_record_kid_id'
@@ -36,7 +36,7 @@ RSpec.describe '予防接種管理機能', type: :system do
       end
     end 
 
-    context '任意の予防接種情報をクリックした場合' do 
+    context '(詳細)任意の予防接種情報をクリックした場合' do 
       it 'その詳細に飛ぶ' do 
         FactoryBot.create(:kid_vaccination_record)
         visit kid_vaccination_records_path 
@@ -45,7 +45,7 @@ RSpec.describe '予防接種管理機能', type: :system do
       end 
     end 
 
-    context '任意の予防接種情報を編集した場合' do
+    context '(編集)任意の予防接種情報を編集した場合' do
       it '編集内容が反映されている' do
         FactoryBot.create(:kid_vaccination_record)
         visit kid_vaccination_records_path 
@@ -56,7 +56,7 @@ RSpec.describe '予防接種管理機能', type: :system do
       end
     end
 
-    context '任意の予防接種情報を削除した場合' do
+    context '(削除)任意の予防接種情報を削除した場合' do
       it '情報が削除されている' do
         FactoryBot.create(:kid_vaccination_record)
         visit kid_vaccination_records_path 
@@ -68,20 +68,29 @@ RSpec.describe '予防接種管理機能', type: :system do
   end 
 
   describe 'ソート機能' do
-    context '回数をクリックした場合' do
-      it '昇順から降順に並べ替えられる' do
+    context '接種日をクリックした場合' do
+      it '昇順に並べ替えられる' do
         FactoryBot.create(:kid_vaccination_record)
         FactoryBot.create(:second_kid_vaccination_record)
         visit kid_vaccination_records_path 
-        click_link '回数'
+        click_link '接種日'
         vaccine_list = all('.vaccine_row') 
-        expect(task_list[0]).to have_content 'ロタウイルス'
-        expect(task_list[1]).to have_content 'ヒブ'
+        expect(task_list[0]).to have_content '2022/12/01'
+        expect(task_list[1]).to have_content '2022/02/01'
       end
     end
-  
-  
   end
 
+  describe 'アクセス制限機能' do
+
+    context '他のファミリーがアクセスしようとした場合' do
+      it 'アクセス権限がありませんと表示される' do
+        FactoryBot.create(:user)
+        visit kid_vaccination_records_path
+        expect(page).to have_content 'アクセス制限がありません'
+      end
+    end
+  end
+end
 
 

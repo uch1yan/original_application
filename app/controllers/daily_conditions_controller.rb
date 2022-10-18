@@ -1,6 +1,8 @@
 class DailyConditionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_kid, only: %i[ new create show edit update ]
+  before_action :no_access, only: %i[ edit show ]
+
   
   def index
     @conditions = DailyCondition.all
@@ -50,11 +52,19 @@ class DailyConditionsController < ApplicationController
 
 
   private
-    def daily_condition_params
-      params.require(:daily_condition).permit(:start_time, :mood, :temperature, :toilet, :sleep, :comment, :kid_id)
-    end
+  def daily_condition_params
+    params.require(:daily_condition).permit(:start_time, :mood, :temperature, :toilet, :sleep, :comment, :kid_id)
+  end
 
-    def set_kid
-      @kids = current_user.families.first.kids
-    end
+  def set_kid
+    @kids = current_user.families.first.kids
+  end
+
+  def no_access
+    @condition = DailyCondition.find(params[:id])
+    unless current_user.families.first.id == @condition.kid.family.id
+      redirect_to daily_conditions_path, notice: "アクセス権限がありません" 
+    end 
+  end
 end
+

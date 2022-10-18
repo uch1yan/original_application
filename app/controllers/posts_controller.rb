@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :no_access, only: %i[ edit ]
 
   # GET /posts or /posts.json
   def index
@@ -68,4 +69,12 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:date, :content)
   end
+
+  def no_access
+    @post = Post.find(params[:id])
+    unless current_user.families.first.id == @post.user.families.first.id
+    redirect_to posts_path, notice: "アクセス権限がありません" 
+    end 
+  end
+  
 end

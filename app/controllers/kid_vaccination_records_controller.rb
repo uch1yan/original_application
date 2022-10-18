@@ -1,6 +1,7 @@
 class KidVaccinationRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_kid, only: %i[ new create edit update ]
+  before_action :no_access, only: [:edit]
 
   def index
     @kid_vaccination_records = KidVaccinationRecord.all
@@ -21,7 +22,6 @@ class KidVaccinationRecordsController < ApplicationController
   end
 
   def show
-    @kid_vaccination_record = KidVaccinationRecord.find(params[:id])
   end
 
   def edit
@@ -59,5 +59,12 @@ class KidVaccinationRecordsController < ApplicationController
   def set_kid
     @kids = current_user.families.first.kids
     #アソシエーション要検討
+  end
+
+  def no_access
+    @kid_vaccination_record = KidVaccinationRecord.find(params[:id])
+    unless current_user.families.first.id == @kid_vaccination_record.kid.family.id
+      redirect_to kid_vaccination_records_path, notice: "アクセス権限がありません" 
+    end 
   end
 end

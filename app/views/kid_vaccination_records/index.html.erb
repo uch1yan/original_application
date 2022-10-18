@@ -21,7 +21,6 @@
         <td><%= kid_vaccine.count %></td>
         <td><%= kid_vaccine.inplemented_date %></td>
         <td><%= link_to '編集', edit_kid_vaccination_record_path(kid_vaccine) %></td>
-        <td><%= link_to '詳細', kid_vaccination_record_path(kid_vaccine.id) %></td>
         <td><%= link_to '削除', kid_vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end%>

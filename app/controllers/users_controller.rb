@@ -42,4 +42,13 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :admin, :family_id, :kid_id)
     end
+
+  def no_access
+		@user = User.find(params[:id])
+		unless @user == current_user
+		flash[:danger] = "アクセスする権限がありません"
+		redirect_to posts_path
+		end
+	end
+
 end

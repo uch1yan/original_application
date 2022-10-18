@@ -2,6 +2,8 @@ class GrowthRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_growth_record, only: %i[ edit update destroy ]
   before_action :set_kid, only: %i[ new create edit update ]
+  before_action :no_access, only: %i[ edit show ]
+
 
   # GET /growth_records or /growth_records.json
   def index
@@ -76,4 +78,12 @@ class GrowthRecordsController < ApplicationController
     def growth_record_params
       params.require(:growth_record).permit(:date, :height, :weight, :kid_id)
     end
+
+    def no_access
+      @growth_record = GrowthRecord.find(params[:id])
+      unless current_user.families.first.id == @growth_record.kid.family.id
+      redirect_to growth_records_path, notice: "アクセス権限がありません" 
+    end 
+  end
+
 end
