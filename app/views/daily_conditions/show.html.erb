@@ -1,6 +1,7 @@
   <h1>詳細ページ</h1>
   <div class="text-center"> 
   
+  <p><strong>名前：</strong> <%= @condition.kid.kid_name %></p>
   <p><strong>日付：</strong> <%= @condition.start_time.strftime("%Y-%m-%d %H:%M") %></p>
   <p><strong>機嫌：</strong> <%= @condition.mood %></p>
   <p><strong>体温：</strong>  <%= @condition.temperature %></p>
