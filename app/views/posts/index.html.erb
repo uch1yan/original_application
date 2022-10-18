@@ -13,7 +13,7 @@
     <% @posts.each do |post| %>
       <% if post.user.families.first.id == current_user.families.first.id %>
       <tr>
-        <td><%= post.date.strftime("%Y-%m-%d %H:%M")  %></td>
+        <td><%= post.date.strftime("%Y-%m-%d")  %></td>
         <td><%= post.content %></td>
         <td><%= link_to '編集', edit_post_path(post) %></td>
         <td><%= link_to '削除', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
