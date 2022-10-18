@@ -60,12 +60,28 @@ RSpec.describe '予防接種管理機能', type: :system do
       it '情報が削除されている' do
         FactoryBot.create(:kid_vaccination_record)
         visit kid_vaccination_records_path 
-        click_link '編集'   
-        fill_in 'kid_vaccination_record_inplemented_date', with: '2022/01/02'
-        click_button 'commit'
-        expect(page).to have_content '2022/01/02'
+        click_link '削除'   
+        page.accept_alert
+        expect(page).not_to have_content 'ヒブ' && '一回目'
       end
     end
-
   end 
+
+  describe 'ソート機能' do
+    context '回数をクリックした場合' do
+      it '昇順から降順に並べ替えられる' do
+        FactoryBot.create(:kid_vaccination_record)
+        FactoryBot.create(:second_kid_vaccination_record)
+        visit kid_vaccination_records_path 
+        click_link '回数'
+        vaccine_list = all('.vaccine_row') 
+        expect(task_list[0]).to have_content 'ロタウイルス'
+        expect(task_list[1]).to have_content 'ヒブ'
+      end
+    end
+  
+  
+  end
+
+
 

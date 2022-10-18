@@ -14,7 +14,7 @@
   <tbody>
     <% @vaccines.each do |vaccine| %>
       <tr>
-        <%# if vaccine.kid.family.id == current_user.families.first.id %>
+        <% if vaccine.kid.family.id == current_user.families.first.id %>
         <td><% vaccine.kid_vaccination_records.each do |record| %>
               <% record.kid.kid_name %>
             <% end %>
@@ -26,7 +26,7 @@
         <td><%= link_to '詳細', vaccination_record_path(vaccine.id) %></td>
         <td><%= link_to '削除', vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-      <%# end %>
+      <% end %>
     <% end %>
   </tbody>
 </table>

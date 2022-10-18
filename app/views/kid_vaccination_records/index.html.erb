@@ -14,7 +14,8 @@
 
   <tbody>
     <% @kid_vaccination_records.each do |kid_vaccine| %>
-      <tr>
+      <% if kid_vaccine.kid.family.id == current_user.families.first.id %>   
+      <tr class="vaccine-row">
         <td><%= Kid.find(kid_vaccine.kid_id).kid_name %></td>
         <td><%= VaccinationRecord.find(kid_vaccine.vaccination_record_id).name %></td>
         <td><%= kid_vaccine.count %></td>
@@ -23,6 +24,7 @@
         <td><%= link_to '詳細', kid_vaccination_record_path(kid_vaccine.id) %></td>
         <td><%= link_to '削除', kid_vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <% end%>
     <% end %>
   </tbody>
 </table>
