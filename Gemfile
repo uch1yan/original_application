@@ -23,6 +23,7 @@ gem 'ransack'
 gem 'socialization'
 gem 'cancancan'
 gem 'rails_admin', '~> 3.0'
+gem 'devise_invitable'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  get 'kid_vaccination_rcords/new'
-  get 'kid_vaccination_rcords/create'
-  get 'kid_vaccination_rcords/edit'
-  get 'kid_vaccination_rcords/update'
   root "users#show"
   resources :checks
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    invitations: 'users/invitations'
   }
   devise_scope :user do
     get 'users/sign_out', to: 'devise/sessions#destroy'

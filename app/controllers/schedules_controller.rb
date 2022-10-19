@@ -3,6 +3,7 @@ class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[ show edit update destroy ]
   before_action :set_q, only: [:index, :search]
   before_action :set_kid, only: %i[ new create edit update ]
+  before_action :no_access, only: %i[ edit show ]
   
   def index
     @schedules = Schedule.all
@@ -79,5 +80,12 @@ class SchedulesController < ApplicationController
 
   def schedule_params
     params.require(:schedule).permit(:title, :content, :start_time, :kid_id)
+  end
+
+  def no_access
+    @schedule = Schedule.find(params[:id])
+    unless current_user.families.first.id == @schedule.kid.family.id
+    redirect_to schedules_path, notice: "アクセス権限がありません" 
+    end 
   end
 end
