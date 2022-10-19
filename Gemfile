@@ -52,4 +52,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rubocop', require: false
 gem 'rails-i18n'
+gem 'devise-i18n'
 

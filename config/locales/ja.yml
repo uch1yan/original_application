@@ -21,3 +21,26 @@ ja:
       register_my_kids: "マイキッズの登録"
       invite_family: "家族の招待"
   schedules:
+    index:
+      schedule: "スケジュール"
+      part_search: "あいまい検索"
+      search_title: "タイトル"
+      search: "検索"
+      child: "子供"
+      date: "日付"
+      title: "タイトル"
+      content: "内容"
+      detail: "詳細"
+      edit: "編集"
+      delete: "削除"
+      new_schedule: "スケジュールの新規登録"
+    edit:
+      edit: "スケジュールの編集"
+    new:
+      new: スケジュールの新規登録
+    show:
+      date: "日付"
+      title: ”タイトル”
+      content: "内容"
+      edit: 編集
+      back: 戻る
