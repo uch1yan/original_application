@@ -5,19 +5,9 @@ class KidVaccinationRecordsController < ApplicationController
 
   def index
     @kid_vaccination_records = KidVaccinationRecord.all
-    # @q = KidVaccinationRecord.ransack(params[:q])
-    # @kid_vaccination_records = @q.result(distinct: true)
-
     @q = KidVaccinationRecord.ransack(params[:q])
     @kid_vaccination_records = @q.result.includes(:vaccination_record, :kid)
   end
-
-  # def search  
-  #   @q = params[:q]
-
-  #   @kid_vaccination_records = KidVaccinationRecord.ransack(kid_name_cont: @q).result
-  #   @vaccination_records = VaccinationRecord.ransack(name_cont: @q).result
-  # end
 
   def new
     @kid_vaccination_record = KidVaccinationRecord.new
