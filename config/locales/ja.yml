@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+  layouts:
+    application:
+      sign_in: "新規登録"
+      login: "ログイン"
+  users:
+    show:
+      user_name: "ユーザ名"
+      email: "メールアドレス"
+      admin: "管理者"
+      family: "家族名"
+      register_family: "家族名の登録"
+      edit: "編集"
+      register_my_kids: "マイキッズの登録"
+      invite_family: "家族の招待"
+  schedules:

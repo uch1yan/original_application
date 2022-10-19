@@ -1,0 +1,40 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      daily_condition: 今日の様子
+      post: メモ
+      growth_record: 成長記録
+      kid_vaccination_record: 予防接種記録
+      schedule: スケジュール
+      kid: 子供
+      group: グループ
+      family: 家族
+      comment: コメント
+    attributes:
+      user:
+        name: 名前
+        email: Eメール
+        password: パスワード
+        password_confirmation: パスワード確認用
+      daily_condition:
+        start_time: 日付
+        mood: 機嫌
+        temperature: 体温
+        toilet: 排便
+        sleep: 睡眠時間
+        comment: コメント
+      post:
+        date: 日付
+        content: 内容
+      growth_record:
+        date: 日付
+        height: 身長
+        weight: 体重
+      kid_vaccination_record:
+        count: 回数
+        inplemented_date: 接種日
+      schedule:
+        title: タイトル
+        content: 内容
+        start_time: 日付
