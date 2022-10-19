@@ -4,10 +4,11 @@ class Users::InvitationsController < Devise::InvitationsController
   end
   
   def create
+    @family_id = params[:user].delete(:family_id)
     super
     @group = Group.new
     @group.user_id = User.find_by(email: params[:user][:email]).id
-    @group.family_id = params[:user][:family_id]
+    @group.family_id = @family_id
     @group.save
   end
 

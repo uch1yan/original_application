@@ -15,6 +15,7 @@ require 'rails_helper'
 RSpec.describe '予防接種管理機能', type: :system do
   let!(:user){FactoryBot.create(:user)}
   let!(:admin_user){FactoryBot.create(:admin_user)}
+  let!(:kid){FactoryBot.create(:kid)}
 
   describe '予防接種登録機能' do 
     before do 
@@ -27,9 +28,9 @@ RSpec.describe '予防接種管理機能', type: :system do
     context '(登録)ユーザーが子供の予防接種記録を登録した場合' do
       it '登録ができ、一覧画面に表示されている' do
         visit new_kid_vaccination_record_path
-        select '[kid_id]', from 'kid_vaccination_record_kid_id'
-				select '[vaccination_record_id]', from 'kid_vaccination_record_vaccination_record_id'
-        select '[count]', from 'kid_vaccination_record_count'
+        select ' kid1 ', from 'kid_vaccination_record_kid_id'
+				select 'ヒブ', from 'kid_vaccination_record_vaccination_record_id'
+        select '1', from 'kid_vaccination_record_count'
         fill_in 'kid_vaccination_record_inplemented_date', with: '2022/01/01'
 				click_on 'commit'
 				expect(page).to have_content 'vaccine was successfully created.'
@@ -86,8 +87,8 @@ RSpec.describe '予防接種管理機能', type: :system do
     context '他のファミリーがアクセスしようとした場合' do
       it 'アクセス権限がありませんと表示される' do
         FactoryBot.create(:user)
-        visit kid_vaccination_records_path
-        expect(page).to have_content 'アクセス制限がありません'
+        visit edit_kid_vaccination_record_path
+        expect(page).to have_content 'アクセス権限がありません'
       end
     end
   end

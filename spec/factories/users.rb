@@ -10,7 +10,7 @@
 
 #   factory :second_user do
 #     id { 2 }
-#     family_id ( 2 )
+#     family_id { 2 }
 #     name { 'test2' }
 #     email { 'test2@example.com' }
 #     password { 'test2pass' }
