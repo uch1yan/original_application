@@ -28,7 +28,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to schedules_url, notice: "Schedule was successfully created." }
+        format.html { redirect_to schedules_url, notice: t('notice.create_schedules') }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class SchedulesController < ApplicationController
   def update
     respond_to do |format|
       if @schedule.update(schedule_params)
-        format.html { redirect_to schedule_url(@schedule), notice: "Schedule was successfully updated." }
+        format.html { redirect_to schedule_url(@schedule), notice: t('notice.update_schedules') }
         format.json { render :show, status: :ok, location: @schedule }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class SchedulesController < ApplicationController
     @schedule.destroy
 
     respond_to do |format|
-      format.html { redirect_to schedules_url, notice: "Schedule was successfully destroyed." }
+      format.html { redirect_to schedules_url, notice: t('notice.delete_schedules') }
       format.json { head :no_content }
     end
   end
@@ -85,7 +85,7 @@ class SchedulesController < ApplicationController
   def no_access
     @schedule = Schedule.find(params[:id])
     unless current_user.families.first.id == @schedule.kid.family.id
-    redirect_to schedules_path, notice: "アクセス権限がありません" 
+    redirect_to schedules_path, notice: t('notice.no_access')
     end 
   end
 end

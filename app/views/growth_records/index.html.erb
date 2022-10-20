@@ -1,12 +1,12 @@
-<h1>成長記録</h1><br>
+<h1><%= t('.growth_record') %></h1><br>
 
 <% @kids.each do |kid| %>
   <h2><%= kid.kid_name %>の成長記録</h2>
   <br>
-  <%= line_chart [ { name: '身長', data: @growth_data.where(kid: kid).map { |record| record.slice(:date, :height).values } } ] %>
-  <%= line_chart [ { name: '体重', data: @growth_data.where(kid: kid).map { |record| record.slice(:date, :weight).values } } ] %>
+  <%= line_chart [ { name: t('.height'), data: @growth_data.where(kid: kid).map { |record| record.slice(:date, :height).values } } ] %>
+  <%= line_chart [ { name: t('.weight'), data: @growth_data.where(kid: kid).map { |record| record.slice(:date, :weight).values } } ] %>
   <br>
 <% end %>
 
-<%= link_to '成長記録の詳細を閲覧する', growth_record_path(@growth_records) %> 
+<%= link_to t('.detail'), growth_record_path(@growth_records) %> 
 

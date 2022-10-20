@@ -17,7 +17,7 @@ class KidVaccinationRecordsController < ApplicationController
     current_kid = Kid.find(kid_vaccination_record_params[:kid_id])
     kid_vaccination_record = current_kid.kid_vaccination_records.create!(vaccination_record_id: params[:kid_vaccination_record][:vaccination_record_id], inplemented_date: params[:kid_vaccination_record][:inplemented_date],count: params[:kid_vaccination_record][:count])
     #kid_vaccination_recordの変数はいらないかも
-    redirect_to kid_vaccination_records_path, notice: "vaccine record was successfully created." 
+    redirect_to kid_vaccination_records_path, notice: t('notice.create_vaccine_records')
 
   end
 
@@ -31,8 +31,8 @@ class KidVaccinationRecordsController < ApplicationController
   def update
     @kid_vaccination_record = KidVaccinationRecord.find(params[:id])
     respond_to do |format|
-      if @id_vaccination_record.update(kid_vaccination_params)
-        format.html { redirect_to vaccination_records_url, notice: "vaccine record was successfully updated." }
+      if @kid_vaccination_record.update(kid_vaccination_record_params)
+        format.html { redirect_to kid_vaccination_records_url, notice: t('notice.update_vaccine_records') }
         format.json { render :show, status: :ok, location: @kid_vaccination_record }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class KidVaccinationRecordsController < ApplicationController
     @kid_vaccination_record = KidVaccinationRecord.find(params[:id])
     @kid_vaccination_record.destroy
     respond_to do |format|
-      format.html { redirect_to kid_vaccination_records_url, notice: "The record was successfully destroyed." }
+      format.html { redirect_to kid_vaccination_records_url, notice: t('notice.delete_vaccine_records') }
       format.json { head :no_content }
     end
   end
@@ -64,7 +64,7 @@ class KidVaccinationRecordsController < ApplicationController
   def no_access
     @kid_vaccination_record = KidVaccinationRecord.find(params[:id])
     unless current_user.families.first.id == @kid_vaccination_record.kid.family.id
-      redirect_to kid_vaccination_records_path, notice: "アクセス権限がありません" 
+      redirect_to kid_vaccination_records_path, notice: t('notice.no_access')
     end 
   end
 end

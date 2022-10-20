@@ -30,7 +30,7 @@ class FamiliesController < ApplicationController
     @group.user_id = current_user.id
     @group.family_id = Family.last.id
     if @group.save
-      redirect_to user_path(current_user), notice: "作成しました"
+      redirect_to user_path(current_user), notice: t('notice.create_family')
     end
   end
 
@@ -38,7 +38,7 @@ class FamiliesController < ApplicationController
   def update
     respond_to do |format|
       if @family.update(family_params)
-        format.html { redirect_to family_url(@family), notice: "Family was successfully updated." }
+        format.html { redirect_to family_url(@family), notice: t('notice.update_family') }
         format.json { render :show, status: :ok, location: @family }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class FamiliesController < ApplicationController
     @family.destroy
 
     respond_to do |format|
-      format.html { redirect_to families_url, notice: "Family was successfully destroyed." }
+      format.html { redirect_to families_url, notice: t('notice.delete_family') }
       format.json { head :no_content }
     end
   end

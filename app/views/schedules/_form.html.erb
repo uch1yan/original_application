@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :キッズ名 %><br>
+    <%= form.label :kid_name, 'キッズ名' %><br>
     <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
   </div>
 
   <div class="field">
-    <%= form.label :start_time %>
+    <%= form.label :start_time, '日付' %>
     <%= form.datetime_select :start_time %>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title, 'タイトル' %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
+    <%= form.label :content, '予定の詳細' %>
     <%= form.text_area :content %>
   </div>
 

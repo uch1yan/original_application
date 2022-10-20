@@ -1,12 +1,12 @@
-<h1>予防接種の記録</h1>
+<h1><%= t('.record') %></h1>
 
 <table>
   <thead>
     <tr>    
-      <th><%= sort_link(@q, :kid_kid_name, "子供の名前") %></th>
-      <th><%= sort_link(@q, :vaccination_record_name, "ワクチン名") %></th>
-      <th><%= sort_link(@q, :count, "回数") %></th>
-      <th><%= sort_link(@q, :inplemented_date, "接種日") %></th>
+      <th><%= sort_link(@q, :kid_kid_name, t('.kid_name')) %></th>
+      <th><%= sort_link(@q, :vaccination_record_name, t('.vaccine_name')) %></th>
+      <th><%= sort_link(@q, :count, t('.count')) %></th>
+      <th><%= sort_link(@q, :inplemented_date, t('.inplemented_date')) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,8 +20,8 @@
         <td><%= VaccinationRecord.find(kid_vaccine.vaccination_record_id).name %></td>
         <td><%= kid_vaccine.count %></td>
         <td><%= kid_vaccine.inplemented_date %></td>
-        <td><%= link_to '編集', edit_kid_vaccination_record_path(kid_vaccine) %></td>
-        <td><%= link_to '削除', kid_vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('.edit'), edit_kid_vaccination_record_path(kid_vaccine) %></td>
+        <td><%= link_to t('.delete'), kid_vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end%>
     <% end %>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to '新規登録する', new_kid_vaccination_record_path %> 
+<%= link_to t('.register_records'), new_kid_vaccination_record_path %> 

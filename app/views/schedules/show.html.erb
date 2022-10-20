@@ -1,18 +1,18 @@
 <p>
-  <strong>日時:</strong>
+  <strong><%= t('.date') %></strong>
   <%= @schedule.start_time.strftime("%Y-%m-%d %H:%M") %>
 </p>
 
 <p>
-  <strong>タイトル:</strong>
+  <strong><%= t('.title') %></strong>
   <%= @schedule.title %>
 </p>
 
 <p>
-  <strong>内容:</strong>
+  <strong><%= t('.content') %></strong>
   <%= @schedule.content %>
 </p>
 
 
-<%= link_to '編集', edit_schedule_path(@schedule) %> |
-<%= link_to '戻る', schedules_path %>
+<%= link_to t('.edit'), edit_schedule_path(@schedule) %> |
+<%= link_to  t('.back'), schedules_path %>
