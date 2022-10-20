@@ -1,16 +1,16 @@
-  <h1>詳細ページ</h1>
+  <h1><%= t('.detail') %></h1>
   <div class="text-center"> 
   
-  <p><strong>名前：</strong> <%= @condition.kid.kid_name %></p>
-  <p><strong>日付：</strong> <%= @condition.start_time.strftime("%Y-%m-%d %H:%M") %></p>
-  <p><strong>機嫌：</strong> <%= @condition.mood %></p>
-  <p><strong>体温：</strong>  <%= @condition.temperature %></p>
-  <p><strong>排便：</strong>  <%= @condition.toilet %></p>
-  <p><strong>睡眠：</strong>  <%= @condition.sleep %></p>
-  <p><strong>コメント：</strong>  <%= @condition.comment %></p>
+  <p><strong><%= t('.name') %></strong> <%= @condition.kid.kid_name %></p>
+  <p><strong><%= t('.date') %></strong> <%= @condition.start_time.strftime("%Y-%m-%d %H:%M") %></p>
+  <p><strong><%= t('.mood') %></strong> <%= @condition.mood %></p>
+  <p><strong><%= t('.temperature') %></strong>  <%= @condition.temperature %></p>
+  <p><strong><%= t('.toilet') %></strong>  <%= @condition.toilet %></p>
+  <p><strong><%= t('.sleep') %></strong>  <%= @condition.sleep %></p>
+  <p><strong><%= t('.comment') %></strong>  <%= @condition.comment %></p>
 
-  <%= link_to '編集', edit_daily_condition_path(@condition.id) %>
-  <%= link_to '削除', daily_condition_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to t('.edit'), edit_daily_condition_path(@condition.id) %>
+  <%= link_to t('.delete'), daily_condition_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 
   <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->

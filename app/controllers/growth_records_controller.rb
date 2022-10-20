@@ -2,7 +2,7 @@ class GrowthRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_growth_record, only: %i[ edit update destroy ]
   before_action :set_kid, only: %i[ new create edit update ]
-  before_action :no_access, only: %i[ edit show ]
+  before_action :no_access, only: %i[ edit ]
 
 
   # GET /growth_records or /growth_records.json
@@ -32,7 +32,7 @@ class GrowthRecordsController < ApplicationController
 
     respond_to do |format|
       if @growth_record.save
-        format.html { redirect_to growth_record_url(@growth_record), notice: "Growth record was successfully created." }
+        format.html { redirect_to growth_record_url(@growth_record), notice: t('notice.create_growth') }
         format.json { render :show, status: :created, location: @growth_record }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class GrowthRecordsController < ApplicationController
   def update
     respond_to do |format|
       if @growth_record.update(growth_record_params)
-        format.html { redirect_to growth_record_url(@growth_record), notice: "Growth record was successfully updated." }
+        format.html { redirect_to growth_record_url(@growth_record), notice: t('notice.update_growth') }
         format.json { render :show, status: :ok, location: @growth_record }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,7 +58,7 @@ class GrowthRecordsController < ApplicationController
   def destroy
     @growth_record.destroy
     respond_to do |format|
-      format.html { redirect_to growth_records_url, notice: "Growth record was successfully destroyed." }
+      format.html { redirect_to growth_records_url, notice: t('notice.delete_growth') }
       format.json { head :no_content }
     end
   end
@@ -82,7 +82,7 @@ class GrowthRecordsController < ApplicationController
     def no_access
       @growth_record = GrowthRecord.find(params[:id])
       unless current_user.families.first.id == @growth_record.kid.family.id
-      redirect_to growth_records_path, notice: "アクセス権限がありません" 
+      redirect_to growth_records_path, notice: t('notice.no_access')
     end 
   end
 

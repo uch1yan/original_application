@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = current_user.users.build(user_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user), notice: "user was successfully created." }
+        format.html { redirect_to user_url(@user), notice: t('notice.create_users') }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
+        format.html { redirect_to user_url(@user), notice: t('notice.update_users') }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }

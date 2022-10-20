@@ -15,7 +15,7 @@ class DailyConditionsController < ApplicationController
   def create
     @condition = DailyCondition.new(daily_condition_params)
     if @condition.save
-      redirect_to daily_conditions_path
+      redirect_to daily_conditions_path, notice: t('notice.create_records')
     else
       render :new
     end
@@ -28,8 +28,7 @@ class DailyConditionsController < ApplicationController
   def update
     @condition = DailyCondition.find(params[:id])
     if @condition.update(daily_condition_params)
-      redirect_to daily_condition_path(@condition.id)
-      # flash[:info] = '情報を更新しました!'
+      redirect_to daily_conditions_path, notice: t('notice.update_records')
     else
       render :edit
     end
@@ -45,7 +44,7 @@ class DailyConditionsController < ApplicationController
     @condition = DailyCondition.find(params[:id])
     @condition.destroy
     respond_to do |format|
-      format.html { redirect_to daily_conditions_url, notice: "The data was successfully destroyed." }
+      format.html { redirect_to daily_conditions_url, notice: t('notice.delete_records')}
       format.json { head :no_content }
     end
   end
@@ -63,7 +62,7 @@ class DailyConditionsController < ApplicationController
   def no_access
     @condition = DailyCondition.find(params[:id])
     unless current_user.families.first.id == @condition.kid.family.id
-      redirect_to daily_conditions_path, notice: "アクセス権限がありません" 
+      redirect_to daily_conditions_path, notice: t('notice.no_access') 
     end 
   end
 end

@@ -16,49 +16,49 @@
     <table>
       <tr>
         <div class="field">
-          <%= form.label :キッズ名 %>
+          <%= form.label :kid_name, "キッズ名" %>
           <%= form.collection_select(:kid_id, @kids, :id,:kid_name ) %>
         </div>
       </tr>
 
       <tr>
         <div class="field">
-          <%= form.label :start_time %>
+          <%= form.label :start_time, "日付" %>
           <%= form.datetime_field :start_time %>
         </div>
       </tr>
 
       <tr>
         <div class="field">
-          <%= form.label :mood %>
+          <%= form.label :mood, "機嫌" %>
           <%= form.select :mood, DailyCondition.moods.keys, include_blank: "選択してください" %>
         </div>
       </tr>
 
       <tr>
         <div class="field">
-          <%= form.label :temperature %>
+          <%= form.label :temperature, "体温" %>
           <%= form.text_field :temperature %>
         </div>
       </tr>
 
       <tr>
         <div class="field">
-          <%= form.label :toilet %>
+          <%= form.label :toilet, "排便" %>
           <%= form.select :toilet, DailyCondition.toilets.keys, include_blank: "選択してください" %>
         </div>
       </tr>
 
       <tr>
         <div class="field">
-          <%= form.label :sleep %>
+          <%= form.label :sleep, "睡眠時間" %>
           <%= form.text_field :sleep %>
         </div>
       </tr>
 
       <tr>
         <div class="field">
-          <%= form.label :comment %>
+          <%= form.label :comment, "コメント" %>
           <%= form.text_field :comment %>
         </div>
       </tr>
