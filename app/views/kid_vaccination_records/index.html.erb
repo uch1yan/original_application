@@ -18,6 +18,7 @@
       <tr class="vaccine-row">
         <td><%= Kid.find(kid_vaccine.kid_id).kid_name %></td>
         <td><%= VaccinationRecord.find(kid_vaccine.vaccination_record_id).name %></td>
+        <%#= VaccinationRecord.find(kid_vaccine.name) %>
         <td><%= kid_vaccine.count %></td>
         <td><%= kid_vaccine.inplemented_date %></td>
         <td><%= link_to t('.edit'), edit_kid_vaccination_record_path(kid_vaccine) %></td>
