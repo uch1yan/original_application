@@ -1,0 +1,48 @@
+@media (min-width: 700px) {
+  .btn {
+    color: #fff;
+    padding: 10px 20px;
+  background: #edalal;
+  box-shadow: 0 0 0 5px #edalal;
+  border: 2px dashed #e38787;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  }
+
+  .btn a:hover {
+    color: #fff;
+    background: #e38787;
+    box-shadow: 0 0 0 5px #e38787;
+    border: 2px dashed #edalal;
+  }
+
+  .side-box {
+    margin-bottom: 4rem;
+    border: 1px solid #ccc;
+    outline: 2px solid #ccc;
+    outline-offset: 4px;
+    border-radius: 6px;
+    padding: .875rem;
+    position: relative;
+  }
+
+  .side-box::before {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    background: #fff;
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #949087;
+    font-size: 2rem;
+    content:'\e4b7';
+  }
+}

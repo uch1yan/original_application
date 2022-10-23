@@ -7,8 +7,11 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>  </head>
-
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>  
+    <link rel="stylesheet" href="./assets/stylesheets/desktop.scss" media="(min-width: 701px)" %>
+    <link rel="stylesheet" href="./assets/stylesheets/mobile.scss" media="(min-width: 701px)" %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  </head>
   <body>
     <% if user_signed_in? %>
       

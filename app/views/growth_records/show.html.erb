@@ -1,30 +1,31 @@
-<h1><%= t('.detail') %></h1>
+<div class="side-box"><i class="fa-solid fa-arrow-up-right-dots"></i>
+  <h1><%= t('.detail') %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t('.date') %></th>
-      <th><%= t('.height') %></th>
-      <th><%= t('.weight') %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @growth_records.each do |growth_record| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= growth_record.date %></td>
-        <td><%= growth_record.height %></td>
-        <td><%= growth_record.weight %></td>
-        <td><%= link_to t('.edit'), edit_growth_record_path(growth_record) %></td>
-        <td><%= link_to t('.delete'), growth_records_path %></td>
+        <th><%= t('.date') %></th>
+        <th><%= t('.height') %></th>
+        <th><%= t('.weight') %></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-<%= link_to t('.back'), growth_records_path %>
-<%= link_to t('.register_records'), new_growth_record_path %>
+    <tbody>
+      <% @growth_records.each do |growth_record| %>
+        <tr>
+          <td><%= growth_record.date %></td>
+          <td><%= growth_record.height %></td>
+          <td><%= growth_record.weight %></td>
+          <td><%= link_to t('.edit'), edit_growth_record_path(growth_record) %></td>
+          <td><%= link_to t('.delete'), growth_records_path %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
+  <br>
+  <%= link_to t('.back'), growth_records_path %>
+  <%= link_to t('.register_records'), new_growth_record_path %>
+</div>
 
