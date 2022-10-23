@@ -12,7 +12,7 @@ RSpec.describe 'ユーザ管理機能', type: :system do
         fill_in 'user_password', with: 'divepass'
         fill_in 'user_password_confirmation', with: 'divepass'
 				click_on 'Sign up'
-				expect(page).to have_content 'Welcome! You have signed up successfully.'
+				expect(page).to have_content 'アカウント登録が完了しました。'
       end
     end 
 
@@ -34,7 +34,7 @@ RSpec.describe 'ユーザ管理機能', type: :system do
 
     context '一般ユーザーがログインしたとき' do
       it 'ログインができること' do 
-        expect(page).to have_content 'Signed in successfully'
+        expect(page).to have_content 'ログインしました。'
       end 
 
       it 'ログアウトができること' do

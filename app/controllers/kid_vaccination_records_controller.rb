@@ -15,8 +15,9 @@ class KidVaccinationRecordsController < ApplicationController
 
   def create
     current_kid = Kid.find(kid_vaccination_record_params[:kid_id])
-    kid_vaccination_record = current_kid.kid_vaccination_records.create!(vaccination_record_id: params[:kid_vaccination_record][:vaccination_record_id], inplemented_date: params[:kid_vaccination_record][:inplemented_date],count: params[:kid_vaccination_record][:count])
+    kid_vaccination_record = current_kid.kid_vaccination_records.create!(vaccination_record_id: params[:kid_vaccination_record][:vaccination_record_id], inplemented_date: params[:kid_vaccination_record][:inplemented_date], count: params[:kid_vaccination_record][:count])
     #kid_vaccination_recordの変数はいらないかも
+    #kid_vaccination_record = current_kid.kid_vaccination_records.create!(VaccinationRecord.name: params[:kid_vaccination_record][:name], inplemented_date: params[:kid_vaccination_record][:inplemented_date], count: params[:kid_vaccination_record][:count])
     redirect_to kid_vaccination_records_path, notice: t('notice.create_vaccine_records')
 
   end

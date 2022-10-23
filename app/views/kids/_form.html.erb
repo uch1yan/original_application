@@ -21,11 +21,6 @@
     <%= form.date_field :date_of_birth %>
   </div>
 
-  <div class="field">
-    <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
-  </div>
-
   <%= form.hidden_field :family_id, :value => current_user.families.first.id %>
   
   <div class="actions">

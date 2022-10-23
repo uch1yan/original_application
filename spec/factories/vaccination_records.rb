@@ -1,8 +1,10 @@
 FactoryBot.define do
   factory :vaccination_record do
-    name { "MyString" }
-    count { "MyString" }
-    expected_date { "MyString" }
-    inplemented_date { "2022-10-11" }
+    name { 'ヒブ' }
   end
+
+  factory :second_vaccination_record, class: VaccinationRecord do
+    name { 'ロタウイルス' }
+  end
+
 end

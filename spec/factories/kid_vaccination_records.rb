@@ -1,18 +1,15 @@
-# FactoryBot.define do
-#   factory :kid_vaccination_record do
-#     id { 1 }
-#     kid_id { 1 }
-#     name { 'ヒブ' }
-#     count { '一回目' }
-#     inplemented_date { '2022/12/01' }
-#   end
+FactoryBot.define do
+  factory :kid_vaccination_record do
+    count { '1回目' }
+    inplemented_date { '2022/12/01' }
+    kid { FactoryBot.create(:kid)}
+    vaccination_record { FactoryBot.create(:vaccination_record)}
+  end
 
-#   factory :second_kid_vaccination_record do
-#     id { 2 }
-#     kid_id { 2 }
-#     name { 'ロタウイルス' }
-#     count { '一回目' }
-#     inplemented_date { '2022/02/01' }
-#   end
-# end
+  # factory :second_kid_vaccination_record do
+  #   count { '1回目' }
+  #   inplemented_date { '2022/02/01' }
+  #   association :kid, factory: :kid
+  # end
+end
 

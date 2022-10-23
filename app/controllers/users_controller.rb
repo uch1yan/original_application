@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-
+  # before_action :admin_user
 
   def create
     @user = current_user.users.build(user_params)
@@ -51,4 +51,9 @@ class UsersController < ApplicationController
 		end
 	end
 
+#   def admin_user
+#     unless current_user.admin?
+#       render :show, notice: "管理者以外はアクセスできません"
+#     end
+#   end
 end
