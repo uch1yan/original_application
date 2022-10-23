@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "users#show"
+  root "homes#index"
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'users/sign_out', to: 'devise/sessions#destroy'
   end
-  
+
+  resources :homes, only: %i[ index ]
   resources :users, only: %i[ show edit update destroy ]
   resources :posts
   resources :growth_records

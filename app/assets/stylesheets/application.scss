@@ -16,6 +16,39 @@
  */
 @import "bootstrap";
 
+#menu {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#menu li {
+  display: block;
+  float: left;
+  width: 12.5%;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li a {
+  display: block;
+  padding: 12px 0 10px;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+#menu li a:hover {
+  background: #444;
+}
+
+#toggle {
+  display: none;
+}
+
+
 .cp_ipcheck {
   width: 90%;
   margin: 2em auto;
@@ -80,11 +113,32 @@
   background: #ffffff;
 }
 
+section {
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 
+.hero {
+  background-image: url('./family.jpg');
+  text-align: center;
+  padding-top: 10vh;
+}
 
+.title {
+  font-size: 50px;
+  font-family: 'Ribeye Marrow', cursive;
+}
 
+.container-fluid {
+  height: 75px;
 
-
+  .nav-item {
+    font-size: 20px;
+    padding: 10px;
+  }
+}
 
 // .example2 {
 //   display: flex;
@@ -168,41 +222,3 @@
   background: #da3c41;
 }
 
-// input[type=checkbox]:checked {
-//   display: none;
-// }
-
-// input[type=checkbox]:checked+label {
-//   box-sizing: border-box;
-//   cursor: pointer;
-//   padding: 5px 20px;
-//   position: relative;
-//   width: auto;
-// }
-
-// input[type=checkbox]:checked+label::before {
-//   position: absolute;
-//   top: 50%;
-//   left: 5px;
-//   display: block;
-//   margin-top: -8px;
-//   width: 14px;
-//   height: 14px;
-//   content: '';
-//   background: #0075ff;
-//   border-radius: 4px;
-// }
-
-// input[type=checkbox]:checked+label::after {
-//   border-right: 2px solid #fff;
-//   border-bottom: 2px solid #fff;
-//   content: '';
-//   display: block;
-//   height: 7px;
-//   left: 8px;
-//   margin-top: -7px;
-//   position: absolute;
-//   top: 50%;
-//   transform: rotate(45deg);
-//   width: 5px;
-// }
