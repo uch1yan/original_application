@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :kid_name %>
+    <%= form.label :kid_name, '名前' %>
     <%= form.text_field :kid_name %>
   </div>
 
   <div class="field">
-    <%= form.label :date_of_birth %>
+    <%= form.label :date_of_birth, '生年月日' %>
     <%= form.date_field :date_of_birth %>
   </div>
 
   <%= form.hidden_field :family_id, :value => current_user.families.first.id %>
   
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t('.register'), class: "login" %>
   </div>
 <% end %>

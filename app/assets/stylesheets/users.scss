@@ -12,13 +12,14 @@
   border: 1px solid #E0FFFF;
 }
 
-.box {
-  padding: 15px;
-  border-radius: 5px;
-  border-color: black;
-}
+// .box {
+//   padding: 15px;
+//   border-radius: 5px;
+//   border-color: black;
+// }
 
 .user_info {
+  text-align: center;
   border-style: dashed;
   border-color: #ffb3b3;
   padding: 30px;
@@ -35,4 +36,8 @@ h2 {
 
 p {
   font-size: 15px;
+}
+
+.field {
+  width: 400px;
 }

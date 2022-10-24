@@ -1,5 +1,9 @@
-<h1>マイキッズの新規登録</h1>
+<div class="user_info">
+  <h1>マイキッズの新規登録</h1>
 
-<%= render 'form', kid: @kid %>
+  <%= render 'form', kid: @kid %>
 
-<%= link_to 'Back', kids_path %>
+  <div class="back">
+    <%= link_to t('.back'), user_path(current_user) %>
+  </div>
+</div>

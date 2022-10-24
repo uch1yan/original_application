@@ -17,14 +17,24 @@
   </div>
 
   <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin %>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
   </div>
 
   <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin %>
+    <%= form.label :password %>
+    <%= form.password_field :password, autocomplete: "current-password" %>
   </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+
+  <%# <iv class="field">
+    <%= form.label :admin %>
+    <%#= form.check_box :admin %>
 
 
   <div class="actions">
