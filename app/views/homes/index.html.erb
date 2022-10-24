@@ -4,6 +4,13 @@
     ここに説明を書く。<br>
     ここに説明を書く。<br>
   </p>
+    
+
+  <% unless user_signed_in? %>
+    <button class= "signin"><%= link_to t('.sign_in'), new_user_registration_path %></button>
+    <button class= "signin"><%= link_to t('.login'), new_user_session_path %> 
+  <% end %>
+
 </section>
 
 

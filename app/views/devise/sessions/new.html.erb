@@ -20,9 +20,11 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "Log in", class: "login" %>
     </div>
-  <% end %>
+    <% end %>
 
-  <%= render "devise/shared/links" %>
+    <div class="addition">
+      <%= render "devise/shared/links" %>
+    </div>
 </div>

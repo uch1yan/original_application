@@ -102,6 +102,10 @@ ja:
     edit:
       edit: "MEMO編集"
       back: "前の画面に戻る"
+  homes:
+    index:
+      sign_in: "新規登録"
+      login: "ログイン"
   notice:
     create_users: "ユーザー登録が完了しました！"
     update_users: "ユーザー情報を更新しました！"

@@ -16,6 +16,9 @@
  */
 @import "bootstrap";
 
+// html {
+//   background-color: wheat;
+// }
 #menu {
   width: 100%;
   max-width: 960px;
@@ -127,7 +130,7 @@ section {
 }
 
 .title {
-  font-size: 50px;
+  font-size: 80px;
   font-family: 'Ribeye Marrow', cursive;
 }
 
@@ -135,10 +138,16 @@ section {
   height: 75px;
 
   .nav-item {
-    font-size: 20px;
+    font-size: 25px;
     padding: 10px;
+    display: block;
+    float: left;
+    width: 12.5%;
+    margin: 0;
+    padding: 0;
   }
 }
+
 
 // .example2 {
 //   display: flex;
@@ -313,5 +322,29 @@ form {
   background: #ee3e52;
 }
 
+.signin {
+  font-size: 20px;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 50px;
+}
+
+.login {
+  padding: 10px;
+  border-radius: 20px;
+  background: #f16272;
+  color: #fff;
+  font-size: 20px;
+  border: 1px solid #f16272;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.addition {
+  text-align: right;
+}
 
 

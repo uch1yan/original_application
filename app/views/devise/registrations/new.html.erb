@@ -32,10 +32,12 @@
       <%#= f.check_box :admin %>
     <%# </div>  %>
 
-    <div class="button-panel">
-      <p class="button"><%= f.submit "Sign up" %></p>
+    <div class="actions">
+      <%= f.submit "Sign up", class: "login" %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
+    
+    <div class="addition">
+      <%= render "devise/shared/links" %>
+    </div>
 </div>
