@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root "homes#index"
+  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
+  post 'users/admin_guest_sign_in', to: 'homes#admin_guest_sign_in'
+  
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
