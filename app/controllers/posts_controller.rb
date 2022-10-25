@@ -73,7 +73,7 @@ class PostsController < ApplicationController
   def no_access
     @post = Post.find(params[:id])
     unless current_user.families.first.id == @post.user.families.first.id
-    redirect_to posts_path, notice: t('notice.no_access')
+      redirect_to posts_path, notice: t('notice.no_access')
+    end
   end
-  
 end

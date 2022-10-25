@@ -1,6 +1,6 @@
 class KidsController < ApplicationController
   before_action :authenticate_user!
-  
+  before_action :family_first
   def new
     @kid = Kid.new
   end
@@ -53,5 +53,11 @@ class KidsController < ApplicationController
 
   def kid_params
     params.require(:kid).permit(:family_id, :kid_name, :date_of_birth)
+  end
+
+  def family_first
+    unless current_user.groups.present?
+      redirect_to new_family_path, notice: "家族名を先に登録してください"
+    end
   end
 end

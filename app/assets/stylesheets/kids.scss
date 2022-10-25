@@ -1,3 +1,28 @@
 // Place all the styles related to the kids controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.user_info {
+  text-align: center;
+  border-style: dashed;
+  border-color: #ffb3b3;
+  padding: 30px;
+  background: #ffe6e6;
+  border-radius: 20px;
+  margin: 20px auto;
+  margin-top: 200px;
+  max-width: 500px;
+}
+
+.back {
+  text-align: right;
+}
+
+.kid {
+  padding: 5px;
+  border-radius: 10px;
+  background: #f16272;
+  color: #fff;
+  font-size: 10px;
+  border: 1px solid #f16272;
+}

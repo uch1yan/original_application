@@ -1,3 +1,43 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.edit {
+  padding: 10px 15px 10px 15px;
+  margin-top: 10px;
+  border-radius: 15px;
+  background: #E0FFFF;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #E0FFFF;
+}
+
+// .box {
+//   padding: 15px;
+//   border-radius: 5px;
+//   border-color: black;
+// }
+
+.user_info {
+  text-align: center;
+  border-style: dashed;
+  border-color: #ffb3b3;
+  padding: 30px;
+  background: #ffe6e6;
+  border-radius: 20px;
+  margin: 20px auto;
+  margin-top: 200px;
+  max-width: 500px;
+}
+
+h2 {
+  padding: 10px 20px;
+}
+
+p {
+  font-size: 15px;
+}
+
+.field {
+  width: 400px;
+}

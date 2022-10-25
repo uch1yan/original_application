@@ -20,6 +20,19 @@ ja:
       edit: "編集"
       register_my_kids: "マイキッズの登録"
       invite_family: "家族の招待"
+    edit:
+      edit: "編集ページ"
+  families:
+    form:
+      register: "登録"
+    new:
+      back: "前の画面に戻る"
+      register_family: "家族名の登録"
+  kids:
+    form:
+      register: "登録"
+    new:
+      back: "前の画面に戻る"
   schedules:
     index:
       schedule: "スケジュール"
@@ -102,6 +115,10 @@ ja:
     edit:
       edit: "MEMO編集"
       back: "前の画面に戻る"
+  homes:
+    index:
+      sign_in: "新規登録"
+      login: "ログイン"
   notice:
     create_users: "ユーザー登録が完了しました！"
     update_users: "ユーザー情報を更新しました！"
