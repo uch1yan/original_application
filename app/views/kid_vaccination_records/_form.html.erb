@@ -8,8 +8,7 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%#= form.collection_select(:vaccination_record_id, VaccinationRecord.all, :id, :name )%>
-    <%= form.select :name, VaccinationRecord.names.keys, include_blank: "選択してください" %>
+    <%= form.collection_select(:vaccination_record_id, VaccinationRecord.all, :id, :name )%>
   </div>
 
   <div class="field">

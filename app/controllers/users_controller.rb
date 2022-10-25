@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @user = current_user.users.build(user_params)
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to user_url(@user), notice: t('notice.create_users') }
         format.json { render :show, status: :created, location: @user }
       else

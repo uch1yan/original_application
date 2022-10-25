@@ -2,7 +2,10 @@ require 'rails_helper'
 RSpec.describe '成長記録管理機能', type: :system do
   let!(:user){FactoryBot.create(:user, email: 'growthemail@example.com')}
   let!(:family){FactoryBot.create(:family)}
-  let!(:group){FactoryBot.create(:group, family: family, user: user)} 
+  let!(:family2){FactoryBot.create(:second_family)}
+  let!(:group){FactoryBot.create(:group, family: family, user: user)}
+  let!(:user2){FactoryBot.create(:third_user, email: 'thirdemail@com')}
+  let!(:group2){FactoryBot.create(:second_group, family: family2, user: user2)} 
   let!(:kid){FactoryBot.create(:kid, family: family)}
 
   describe '成長記録CRUD機能' do 
@@ -51,7 +54,6 @@ RSpec.describe '成長記録管理機能', type: :system do
       end
     end
 
-    #削除ができない
     context '任意の成長記録を削除した場合' do
       it 'その成長記録が詳細から削除されている' do
         FactoryBot.create(:family)
@@ -66,7 +68,6 @@ RSpec.describe '成長記録管理機能', type: :system do
     end
   end
 
-  #ログアウトするとログインできない
   describe 'アクセス制限' do 
     before do 
       visit new_user_session_path 
@@ -75,19 +76,23 @@ RSpec.describe '成長記録管理機能', type: :system do
         click_on 'commit'
     end 
 
-    context '他のファミリーがアクセスしようとした場合' do
+    context '他のファミリー(ユーザー)がアクセスしようとした場合' do
       it 'アクセス権限がありませんと表示される' do
         FactoryBot.create(:family)
         FactoryBot.create(:kid, family: family)
-        FactoryBot.create(:growth_record, kid: kid)
+        FactoryBot.create(:growth_record, kid: kid, id: 10)
+        FactoryBot.create(:second_family)
+        FactoryBot.create(:second_kid, family: family2)
+        FactoryBot.create(:third_user)
+
         visit growth_records_path
-        sleep(3)
         click_link 'ログアウト'
-        visit new_user_session_path
-        fill_in 'user_email', with: 'test3@example.com'
+        # visit new_user_session_path
+        click_link 'ログイン'
+        fill_in 'user_email', with: 'thirdemail@com'
         fill_in 'user_password', with: 'test3pass'
         click_on 'commit'
-        visit growth_record_path
+        visit growth_record_path(id:10) 
         expect(page).to have_content 'アクセス権限がありません'
       end
     end
