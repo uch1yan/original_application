@@ -18,7 +18,7 @@
           <td><%= growth_record.height %></td>
           <td><%= growth_record.weight %></td>
           <td><%= link_to t('.edit'), edit_growth_record_path(growth_record) %></td>
-          <td><%= link_to t('.delete'), growth_records_path %></td>
+          <td><%= link_to t('.delete'), growth_record_path(growth_record), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

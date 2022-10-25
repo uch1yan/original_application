@@ -60,18 +60,5 @@ RSpec.describe 'ユーザ管理機能', type: :system do
     end
   end
 
-  describe 'アクセス制限機能' do
-
-    context '一般ユーザーが管理者画面にアクセスしようとした場合' do
-      it 'アクセス権限がありませんと表示される' do
-        visit new_user_session_path 
-        fill_in 'user_email', with: 'test2@example.com'
-        fill_in 'user_password', with: 'test2pass'
-        click_on 'commit'
-        visit rails_admin_path
-        expect(page).to have_content '管理者以外はアクセスできません'
-      end
-    end
-  end
 end
 
