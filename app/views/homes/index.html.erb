@@ -9,6 +9,8 @@
   <% unless user_signed_in? %>
     <button class= "signin"><%= link_to t('.sign_in'), new_user_registration_path %></button>
     <button class= "signin"><%= link_to t('.login'), new_user_session_path %> 
+    <button class= "signin"><%= link_to 'ゲストログイン', homes_guest_sign_in_path, method: :post %></button>
+    <button class= "signin"><%= link_to '管理者ゲストログイン', users_admin_guest_sign_in_path, method: :post %></button>
   <% end %>
 
 </section>
