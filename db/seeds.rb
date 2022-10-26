@@ -12,31 +12,30 @@ User.create!(
   password: "password",
   admin: true,
   id: 1,
-  group_id: 1
 )
 
 Family.create!(
   name: "Young",
-  id: 50
+  id: 1
 )
 
 Family.create!(
   name: "中田",
-  id: 60
+  id: 2
 )
 
 Kid.create!(
   kid_name: "Taro",
   date_of_birth: "2022-12-01",
   id: 1,
-  family_id: 50
+  family_id: 1
 )
 
 Kid.create!(
   kid_name: "Hanako",
   date_of_birth: "2022-02-01",
   id: 2,
-  family_id: 60
+  family_id: 2
 )
 
 DailyCondition.create!(
