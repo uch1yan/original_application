@@ -12,16 +12,17 @@
     </p>
 
 
+    <button class="edit"><%= link_to t('.edit'), edit_user_path(@user) %></button>
+    <br>
     <% if current_user.families.first.present? %>
     <p>
       <strong><%= t('.family') %></strong>:
       <%= current_user.families.first.name %>
     </p>
     <% else %>
-      <%= link_to t('.register_family'), new_family_path%><br>
+      <p>STEP1   <%= link_to t('.register_family'), new_family_path%><br></p>
     <% end %>
 
-    <button class="edit"><%= link_to t('.edit'), edit_user_path(@user) %></button>
+    <p>STEP2   <i class="fa-regular fa-face-smile"></i><%= link_to t('.register_my_kids'), new_kid_path %> </p>  
+    <p>STEP3   <i class="fa-regular fa-envelope"></i><%= link_to t('.invite_family'), new_user_invitation_path %></p>
   </div>
-    <p><i class="fa-regular fa-face-smile"></i><%= link_to t('.register_my_kids'), new_kid_path %>   /
-    <i class="fa-regular fa-envelope"></i><%= link_to t('.invite_family'), new_user_invitation_path %></p>
