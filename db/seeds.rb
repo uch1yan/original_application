@@ -8,7 +8,7 @@
 
 User.create!(
   name: "dive",
-  email: "dive@com",
+  email: "dive@example.com",
   password: "password",
   admin: true,
   id: 1
@@ -18,7 +18,7 @@ User.create!(
   name: "dive2",
   email: "dive2@com",
   password: "password",
-  admin: true,
+  admin: false,
   id: 2
 )
 
@@ -27,7 +27,7 @@ User.create!(
   name: "dive3",
   email: "dive3@com",
   password: "password",
-  admin: true,
+  admin: false,
   id: 3
 )
 
@@ -35,7 +35,7 @@ User.create!(
   name: "dive4",
   email: "dive4@com",
   password: "password",
-  admin: true,
+  admin: false,
   id: 4
 )
 
@@ -43,7 +43,7 @@ User.create!(
   name: "dive5",
   email: "dive5@com",
   password: "password",
-  admin: true,
+  admin: false,
   id: 5
 )
 
