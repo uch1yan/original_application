@@ -18,7 +18,7 @@ class FamiliesController < ApplicationController
     @family.save
     @group = Group.new
     @group.user_id = current_user.id
-    @group.family_id = Family.last.id
+    @group.family_id = @family.id
     if @group.save
       redirect_to user_path(current_user), notice: t('notice.create_family')
     end
