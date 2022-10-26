@@ -1,4 +1,5 @@
 <h1><%= t('.growth_record') %></h1><br>
+<%= link_to t('.new'), new_growth_record_path %> 
 
 <% @kids.each do |kid| %>
   <h2><%= kid.kid_name %>の成長記録</h2>

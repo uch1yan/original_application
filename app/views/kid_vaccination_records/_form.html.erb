@@ -1,27 +1,28 @@
-<h1>入力画面</h1>
-<%= form_with(model: @kid_vaccination_record) do |form| %>
+<div class="user_info">
+  <%= form_with(model: @kid_vaccination_record) do |form| %>
 
-  <div class="field">
-    <%= form.label :キッズ名 %><br>
-    <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
-  </div>
+    <div class="field">
+      <%= form.label :キッズ名 %><br>
+      <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.collection_select(:vaccination_record_id, VaccinationRecord.all, :id, :name )%>
-  </div>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.collection_select(:vaccination_record_id, VaccinationRecord.all, :id, :name )%>
+    </div>
 
-  <div class="field">
-    <%= form.label :count %>
-    <%= form.select :count, KidVaccinationRecord.counts.keys, include_blank: "選択してください" %>
-  </div>
+    <div class="field">
+      <%= form.label :count %>
+      <%= form.select :count, KidVaccinationRecord.counts.keys, include_blank: "選択してください" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :inplemented_date %>
-    <%= form.date_field :inplemented_date %>
-  </div>
-  
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= form.label :inplemented_date %>
+      <%= form.date_field :inplemented_date %>
+    </div>
+    
+    <div class="actions">
+      <%= form.submit "登録", class: "login" %>
+    </div>
+  <% end %>
+</div>
