@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "homes#index"
   
   devise_for :users, controllers: {
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     invitations: 'users/invitations'
   }
+  
   devise_scope :user do
     get 'users/sign_out', to: 'devise/sessions#destroy'
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
@@ -19,17 +21,15 @@ Rails.application.routes.draw do
   resources :kids
   resources :vaccination_records 
   resources :kid_vaccination_records
+  resources :families
+  
   resources :schedules do
     collection do
       get 'search'
     end
   end
-  resources :families
+  
   resources :daily_conditions do
     resources :comments
   end
-  
-
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
