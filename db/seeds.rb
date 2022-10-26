@@ -11,8 +11,42 @@ User.create!(
   email: "dive@com",
   password: "password",
   admin: true,
-  id: 1,
+  id: 1
 )
+
+User.create!(
+  name: "dive2",
+  email: "dive2@com",
+  password: "password",
+  admin: true,
+  id: 2
+)
+
+
+User.create!(
+  name: "dive3",
+  email: "dive3@com",
+  password: "password",
+  admin: true,
+  id: 3
+)
+
+User.create!(
+  name: "dive4",
+  email: "dive4@com",
+  password: "password",
+  admin: true,
+  id: 4
+)
+
+User.create!(
+  name: "dive5",
+  email: "dive5@com",
+  password: "password",
+  admin: true,
+  id: 5
+)
+
 
 Family.create!(
   name: "Young",
@@ -20,8 +54,23 @@ Family.create!(
 )
 
 Family.create!(
-  name: "中田",
+  name: "code2",
   id: 2
+)
+
+Family.create!(
+  name: "code3",
+  id: 3
+)
+
+Family.create!(
+  name: "code4",
+  id: 4
+)
+
+Family.create!(
+  name: "code5",
+  id: 5
 )
 
 Kid.create!(
@@ -38,6 +87,27 @@ Kid.create!(
   family_id: 2
 )
 
+Kid.create!(
+  kid_name: "Hikaru",
+  date_of_birth: "2022-03-01",
+  id: 3,
+  family_id: 3
+)
+
+Kid.create!(
+  kid_name: "Toshi",
+  date_of_birth: "2022-04-01",
+  id: 4,
+  family_id: 4
+)
+
+Kid.create!(
+  kid_name: "Momo",
+  date_of_birth: "2022-05-01",
+  id: 5,
+  family_id: 5
+)
+
 DailyCondition.create!(
   start_time: "2022-12-01",
   mood: "良い",
@@ -48,26 +118,90 @@ DailyCondition.create!(
   kid_id: 1
 )
 
-
-GrowthRecord.create!(
-  date: "2022-12-01",
-  height: "100",
-  weight: "15",
+DailyCondition.create!(
+  start_time: "2022-12-01",
+  mood: "良い",
+  temperature: "36.5",
+  toilet: "快便",
+  sleep: "7時間",
+  comment: "よく眠ってくれた",
   kid_id: 1
 )
 
-# 3.times do |n|
-#   Kid.create!(
-#     kid_name: "Kid#{n + 1}",
-#     date_of_birth: "2022-01-01",
-#   )
-# end
+DailyCondition.create!(
+  start_time: "2022-10-01",
+  mood: "良い",
+  temperature: "36.5",
+  toilet: "快便",
+  sleep: "7時間",
+  comment: "よく眠ってくれた",
+  kid_id: 2
+)
 
+DailyCondition.create!(
+  start_time: "2022-10-01",
+  mood: "良い",
+  temperature: "36.5",
+  toilet: "快便",
+  sleep: "7時間",
+  comment: "よく眠ってくれた",
+  kid_id: 3
+)
+
+DailyCondition.create!(
+  start_time: "2022-10-01",
+  mood: "良い",
+  temperature: "36.5",
+  toilet: "快便",
+  sleep: "7時間",
+  comment: "よく眠ってくれた",
+  kid_id: 4
+)
+
+
+GrowthRecord.create!(
+  date: "2022-10-01",
+  height: "100",
+  weight: "15",
+  kid_id: 5
+)
 
 Post.create!(
   date: "2022-12-01",
   content: "月謝の支払い",
   user_id: 1
+)
+
+Post.create!(
+  date: "2022-12-01",
+  content: "月謝の支払い",
+  user_id: 2
+)
+
+Post.create!(
+  date: "2022-12-01",
+  content: "月謝の支払い",
+  user_id: 3
+)
+
+Post.create!(
+  date: "2022-12-01",
+  content: "月謝の支払い",
+  user_id: 4
+)
+
+Post.create!(
+  date: "2022-12-01",
+  content: "月謝の支払い",
+  user_id: 5
+)
+
+
+Schedule.create!(
+  start_time: "2022-12-01",
+  title: "お遊戯会",
+  content: "衣装を買いに行く",
+  kid_id: 1
 )
 
 Schedule.create!(
@@ -77,7 +211,83 @@ Schedule.create!(
   kid_id: 2
 )
 
+Schedule.create!(
+  start_time: "2022-12-01",
+  title: "お遊戯会",
+  content: "衣装を買いに行く",
+  kid_id: 3
+)
+
+Schedule.create!(
+  start_time: "2022-12-01",
+  title: "お遊戯会",
+  content: "衣装を買いに行く",
+  kid_id: 4
+)
+
+Schedule.create!(
+  start_time: "2022-12-01",
+  title: "お遊戯会",
+  content: "衣装を買いに行く",
+  kid_id: 5
+)
+
+GrowthRecord.create!(
+  date: "2022-12-10",
+  height: 100,
+  weight: 20,
+  kid_id: 1
+)
+
+GrowthRecord.create!(
+  date: "2022-12-10",
+  height: 100,
+  weight: 20,
+  kid_id: 2
+)
+
+GrowthRecord.create!(
+  date: "2022-12-10",
+  height: 100,
+  weight: 20,
+  kid_id: 3
+)
+
+GrowthRecord.create!(
+  date: "2022-12-10",
+  height: 100,
+  weight: 20,
+  kid_id: 4
+)
+
+GrowthRecord.create!(
+  date: "2022-12-10",
+  height: 100,
+  weight: 20,
+  kid_id: 5
+)
+
 Group.create!(
   user_id: 1,
   family_id: 1
+)
+
+Group.create!(
+  user_id: 2,
+  family_id: 2
+)
+
+Group.create!(
+  user_id: 3,
+  family_id: 3
+)
+
+Group.create!(
+  user_id: 4,
+  family_id: 4
+)
+
+Group.create!(
+  user_id: 5,
+  family_id: 5
 )

@@ -6,13 +6,13 @@ class Users::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to user_path(current_user), notice: 'ゲストユーザーとしてログインしました。'
   end
 
   def admin_guest_sign_in
     user = User.guest_admin
     sign_in user
-    redirect_to root_path, notice: '管理者ゲストユーザーとしてログインしました。'
+    redirect_to user_path(current_user), notice: '管理者ゲストユーザーとしてログインしました。'
   end
   # GET /resource/sign_in
   # def new
