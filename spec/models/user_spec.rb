@@ -8,12 +8,7 @@ RSpec.describe User, type: :model do
         expect(user).not_to be_valid
       end
     end
-    context 'パスワードが6文字以下の場合' do
-      it 'バリデーションに引っかかる' do
-        user = User.new(name: 'username', email: 'user@example.com', password: 'test', password_confirmation: 'test')
-        expect(user).not_to be_valid
-      end
-    end
+    
     context '全項目が入力されている場合' do
       it '登録が完了する' do
         user = User.new(name: 'username', email: 'user@example.com', password: 'testpass', password_confirmation: 'testpass')

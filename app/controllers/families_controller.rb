@@ -2,16 +2,6 @@ class FamiliesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_family, only: %i[ show edit update destroy ]
 
-  # GET /familys or /familys.json
-  def index
-    @families = Family.all
-  end
-
-  # GET /familys/1 or /familys/1.json
-  def show
-    @families = Family.all
-
-  end
 
   # GET /familys/new
   def new
