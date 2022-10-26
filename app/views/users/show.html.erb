@@ -20,7 +20,7 @@
       <%= current_user.families.first.name %>
     </p>
     <% else %>
-      <p>STEP1   <%= link_to t('.register_family'), new_family_path%><br></p>
+      <p>STEP1   <%= link_to t('.register_family'), new_family_path %><br></p>
     <% end %>
 
     <p>STEP2   <i class="fa-regular fa-face-smile"></i><%= link_to t('.register_my_kids'), new_kid_path %> </p>  

@@ -39,7 +39,7 @@ RSpec.describe 'ユーザ管理機能', type: :system do
 
       it 'ログアウトができること' do
         visit users_sign_out_path
-        expect(current_path).to eq user_session_path
+        expect(current_path).to have_content 'ログアウトしました。'
       end 
     end 
   end 
