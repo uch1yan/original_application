@@ -56,7 +56,7 @@ class KidsController < ApplicationController
   end
 
   def family_first
-    unless current_user.groups.present?
+    unless current_user.groups || current_user.families.first.kids.present?
       redirect_to new_family_path, notice: "家族名を先に登録してください"
     end
   end

@@ -5,10 +5,39 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-vaccination_record.create(name: "ヒブ")
-vaccination_record.create(name: "B型肝炎")
-vaccination_record.create(name: "小児用肺炎球菌")
-vaccination_record.create(name: "ロタウイルス")
+
+User.create!(
+  name: "dive",
+  email: "dive@com",
+  password: password,
+  admin: true,
+  id: 1,
+  group_id: 1
+)
+
+Family.create!(
+  name: "Young",
+  id: 50
+)
+
+Family.create!(
+  name: "中田",
+  id: 60
+)
+
+Kid.create!(
+  kid_name: "Taro",
+  date_of_birth: "2022-12-01",
+  id: 1,
+  family_id: 50
+)
+
+Kid.create!(
+  kid_name: "Hanako",
+  date_of_birth: "2022-02-01",
+  id: 2,
+  family_id: 60
+)
 
 DailyCondition.create!(
   start_time: "2022-12-01",
@@ -16,34 +45,40 @@ DailyCondition.create!(
   temperature: "36.5",
   toilet: "快便",
   sleep: "7時間",
-  comment: "よく眠ってくれた"
+  comment: "よく眠ってくれた",
+  kid_id: 1
 )
 
-5.times do |n|
-  Family.create!(
-    name: "Family#{n + 1}"
-  )
 
 GrowthRecord.create!(
   date: "2022-12-01",
   height: "100",
-  weight: "15"
+  weight: "15",
+  kid_id: 1
 )
 
-Kid.create!(
-  kid_name: "Kid#{n + 1}"
-)
+# 3.times do |n|
+#   Kid.create!(
+#     kid_name: "Kid#{n + 1}",
+#     date_of_birth: "2022-01-01",
+#   )
+# end
+
 
 Post.create!(
   date: "2022-12-01",
-  content: "月謝の支払い"
+  content: "月謝の支払い",
+  kid_id: 2
 )
 
 Schedule.create!(
   title: "お遊戯会",
-  content: "衣装を買いに行く"
+  content: "衣装を買いに行く",
+  kid_id: 2
 )
 
-User.create!(
-  name: "user#{n + 1}",
+
+Group.create!(
+  user_id: 1,
+  family_id: 1
 )

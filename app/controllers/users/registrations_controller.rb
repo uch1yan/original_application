@@ -18,8 +18,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.save
     user = User.last
     sign_in user
-    binding.pry
-    # session[:user_id] = @user.id
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?

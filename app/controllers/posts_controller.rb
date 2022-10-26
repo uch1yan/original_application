@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :no_access, only: %i[ edit ]
+  before_action :family_first
+
 
   # GET /posts or /posts.json
   def index
@@ -76,4 +78,11 @@ class PostsController < ApplicationController
       redirect_to posts_path, notice: t('notice.no_access')
     end
   end
+
+  def family_first
+    unless current_user.groups || current_user.families.first.kids.present?
+      redirect_to new_family_path, notice: "家族名を先に登録してください"
+    end
+  end
+
 end
