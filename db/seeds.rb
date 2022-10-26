@@ -67,7 +67,7 @@ GrowthRecord.create!(
 Post.create!(
   date: "2022-12-01",
   content: "月謝の支払い",
-  kid_id: 2
+  user_id: 1
 )
 
 Schedule.create!(
@@ -75,7 +75,6 @@ Schedule.create!(
   content: "衣装を買いに行く",
   kid_id: 2
 )
-
 
 Group.create!(
   user_id: 1,
