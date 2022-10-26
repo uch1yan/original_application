@@ -2,7 +2,7 @@ class GrowthRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_growth_record, only: %i[ edit update destroy ]
   before_action :set_kid, only: %i[ new create edit update ]
-  before_action :no_access, only: %i[ edit ]
+  before_action :no_access, only: %i[ edit show ]
 
 
   # GET /growth_records or /growth_records.json

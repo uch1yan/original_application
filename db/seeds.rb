@@ -9,7 +9,7 @@
 User.create!(
   name: "dive",
   email: "dive@com",
-  password: password,
+  password: "password",
   admin: true,
   id: 1,
   group_id: 1
