@@ -1,8 +1,11 @@
 require 'rails_helper'
 RSpec.describe 'スケジュール管理機能', type: :system do
   let!(:user){FactoryBot.create(:user)}
+  let!(:third_user){FactoryBot.create(:third_user)}
   let!(:family){FactoryBot.create(:family)}
-  let!(:group){FactoryBot.create(:group, family: family, user: user)} 
+  let!(:second_family){FactoryBot.create(:second_family)}
+  let!(:group){FactoryBot.create(:group, family: family, user: user)}
+  let!(:second_group){FactoryBot.create(:group, family: second_family, user: third_user)}
   let!(:kid){FactoryBot.create(:kid, family: family)}
 
   describe 'スケジュールCRUD機能' do 
@@ -94,16 +97,16 @@ RSpec.describe 'スケジュール管理機能', type: :system do
 
     context '他のファミリーがアクセスしようとした場合' do
       it 'アクセス権限がありませんと表示される' do
-        FactoryBot.create(:family)
         FactoryBot.create(:kid, family: family)
         FactoryBot.create(:schedule, title: '予防接種', content: '水疱瘡の予防接種に行く', kid: kid, id: 15)
         visit schedules_path
         click_link 'ログアウト'
+        sleep(1)
         visit new_user_session_path
         fill_in 'user_email', with: 'test3@example.com'
         fill_in 'user_password', with: 'test3pass'
         click_on 'commit'
-        visit schedule_path(id: 15)
+        visit schedule_path(15)
         expect(page).to have_content 'アクセス権限がありません'
       end
     end
