@@ -93,6 +93,7 @@ ja:
       height: "身長"
       weight: "体重"
       detail: "成長記録の詳細を閲覧する"
+      new: "成長記録を登録する"
     show:
       detail: "成長記録の詳細"
       date: "実施日"

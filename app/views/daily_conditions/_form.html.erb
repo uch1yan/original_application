@@ -1,73 +1,75 @@
-<%= form_with(model: @condition, local: true) do |form| %>
+<div class="user_info">
+  <%= form_with(model: @condition, local: true) do |form| %>
 
-	<% if @condition.errors.any? %>
-		<div class="error_explanation">
-			<h2><%= @condition.errors.count %>件のエラーがあります</h2>
-			<ul>
-			<% @condition.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
-			<% end %>
-			</ul>
-		</div>
-	<% end %>
+    <% if @condition.errors.any? %>
+      <div class="error_explanation">
+        <h2><%= @condition.errors.count %>件のエラーがあります</h2>
+        <ul>
+        <% @condition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
 
-  <div class="row justify-content-center">
-    <table>
-      <tr>
-        <div class="field">
-          <%= form.label :kid_name, "キッズ名" %>
-          <%= form.collection_select(:kid_id, @kids, :id,:kid_name ) %>
-        </div>
-      </tr>
+    <div class="row justify-content-center">
+      <table>
+        <tr>
+          <div class="field">
+            <%= form.label :kid_name, "キッズ名" %>
+            <%= form.collection_select(:kid_id, @kids, :id,:kid_name ) %>
+          </div>
+        </tr>
 
-      <tr>
-        <div class="field">
-          <%= form.label :start_time, "日付" %>
-          <%= form.datetime_field :start_time %>
-        </div>
-      </tr>
+        <tr>
+          <div class="field">
+            <%= form.label :start_time, "日付" %>
+            <%= form.datetime_field :start_time %>
+          </div>
+        </tr>
 
-      <tr>
-        <div class="field">
-          <%= form.label :mood, "機嫌" %>
-          <%= form.select :mood, DailyCondition.moods.keys, include_blank: "選択してください" %>
-        </div>
-      </tr>
+        <tr>
+          <div class="field">
+            <%= form.label :mood, "機嫌" %>
+            <%= form.select :mood, DailyCondition.moods.keys, include_blank: "選択してください" %>
+          </div>
+        </tr>
 
-      <tr>
-        <div class="field">
-          <%= form.label :temperature, "体温" %>
-          <%= form.text_field :temperature %>
-        </div>
-      </tr>
+        <tr>
+          <div class="field">
+            <%= form.label :temperature, "体温" %>
+            <%= form.text_field :temperature %>
+          </div>
+        </tr>
 
-      <tr>
-        <div class="field">
-          <%= form.label :toilet, "排便" %>
-          <%= form.select :toilet, DailyCondition.toilets.keys, include_blank: "選択してください" %>
-        </div>
-      </tr>
+        <tr>
+          <div class="field">
+            <%= form.label :toilet, "排便" %>
+            <%= form.select :toilet, DailyCondition.toilets.keys, include_blank: "選択してください" %>
+          </div>
+        </tr>
 
-      <tr>
-        <div class="field">
-          <%= form.label :sleep, "睡眠時間" %>
-          <%= form.text_field :sleep %>
-        </div>
-      </tr>
+        <tr>
+          <div class="field">
+            <%= form.label :sleep, "睡眠時間" %>
+            <%= form.text_field :sleep %>
+          </div>
+        </tr>
 
-      <tr>
-        <div class="field">
-          <%= form.label :comment, "コメント" %>
-          <%= form.text_field :comment %>
-        </div>
-      </tr>
-    </table>
-    
-    <%= form.hidden_field :family_id, :value => current_user.family_ids %>
+        <tr>
+          <div class="field">
+            <%= form.label :comment, "コメント" %>
+            <%= form.text_field :comment %>
+          </div>
+        </tr>
+      </table>
+      
+      <%= form.hidden_field :family_id, :value => current_user.family_ids %>
 
-    <p class="btn"><%= form.submit '登録' %></p>
+      <p><%= form.submit '登録', class: "login" %></p>
 
-  </div>
+    </div>
 
-<% end %>
+  <% end %>
+</div>

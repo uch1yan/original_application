@@ -1,39 +1,41 @@
-<%= form_with(model: schedule) do |form| %>
-  <% if schedule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+<div class="user_info">
+  <%= form_with(model: schedule) do |form| %>
+    <% if schedule.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
 
-      <ul>
-        <% schedule.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% schedule.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :kid_name, 'キッズ名' %><br>
+      <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
+    </div>
+
+    <div class="field">
+      <%= form.label :start_time, '日付' %>
+      <%= form.datetime_select :start_time %>
+    </div>
+
+    <div class="field">
+      <%= form.label :title, 'タイトル' %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :content, '予定の詳細' %>
+      <%= form.text_area :content %>
+    </div>
+
+    <%= form.hidden_field :family_id, :value => current_user.family_ids %>
+
+    <div class="actions">
+      <%= form.submit "登録", class: "login" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :kid_name, 'キッズ名' %><br>
-    <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_time, '日付' %>
-    <%= form.datetime_select :start_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :title, 'タイトル' %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content, '予定の詳細' %>
-    <%= form.text_area :content %>
-  </div>
-
-  <%= form.hidden_field :family_id, :value => current_user.family_ids %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

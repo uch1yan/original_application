@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
+        sign_in @user
         format.html { redirect_to user_url(@user), notice: t('notice.update_users') }
         format.json { render :show, status: :ok, location: @user }
       else

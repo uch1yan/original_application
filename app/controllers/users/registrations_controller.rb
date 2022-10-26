@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-    skip_before_action :authenticate_user!, only: %i[ create ]
+  skip_before_action :authenticate_user!, only: %i[ create ]
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -16,7 +16,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     resource.save
-    session[:user_id] = @user.id
+    user = User.last
+    sign_in user
+    binding.pry
+    # session[:user_id] = @user.id
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?

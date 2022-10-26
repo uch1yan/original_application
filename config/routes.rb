@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   root "homes#index"
-  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
-  post 'users/admin_guest_sign_in', to: 'homes#admin_guest_sign_in'
   
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -10,6 +8,8 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     get 'users/sign_out', to: 'devise/sessions#destroy'
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+    post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
   end
 
   resources :homes, only: %i[ index ]

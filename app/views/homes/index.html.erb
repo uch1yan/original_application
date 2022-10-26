@@ -1,15 +1,17 @@
 <section class="hero">
   <h1 class="title">Happymore</h1>
-  <p>ここに説明を書く。<br>
-    ここに説明を書く。<br>
-    ここに説明を書く。<br>
+  <p class="explain">ハッピーモアは子供の成長や体調、今後のスケジュールを夫婦間で共有するためのアプリです。<br>
+    毎日子供の様子を記録することで後から簡単に成長を振り返ることができます。<br>
+    また、仕事や外出等で離れているパパも子供の様子をアプリですぐに確認でき、<br>
+    コメントを送信することもできるので夫婦間のコミュニケーションがスムーズになります。<br>
+    子供の成長をを共有し、楽しいこと、嬉しいことは２倍に、悲しいこと、辛いことは半分に！
   </p>
     
 
   <% unless user_signed_in? %>
     <button class= "signin"><%= link_to t('.sign_in'), new_user_registration_path %></button>
     <button class= "signin"><%= link_to t('.login'), new_user_session_path %> 
-    <button class= "signin"><%= link_to 'ゲストログイン', homes_guest_sign_in_path, method: :post %></button>
+    <button class= "signin"><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></button>
     <button class= "signin"><%= link_to '管理者ゲストログイン', users_admin_guest_sign_in_path, method: :post %></button>
   <% end %>
 

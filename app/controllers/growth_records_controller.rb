@@ -32,7 +32,7 @@ class GrowthRecordsController < ApplicationController
 
     respond_to do |format|
       if @growth_record.save
-        format.html { redirect_to growth_record_url(@growth_record), notice: t('notice.create_growth') }
+        format.html { redirect_to growth_records_url, notice: t('notice.create_growth') }
         format.json { render :show, status: :created, location: @growth_record }
       else
         format.html { render :new, status: :unprocessable_entity }

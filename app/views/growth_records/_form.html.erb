@@ -1,37 +1,39 @@
-<%= form_with(model: growth_record) do |form| %>
-  <% if growth_record.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(growth_record.errors.count, "error") %> prohibited this growth_record from being saved:</h2>
+<div class="user_info">
+  <%= form_with(model: growth_record) do |form| %>
+    <% if growth_record.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(growth_record.errors.count, "error") %> prohibited this growth_record from being saved:</h2>
 
-      <ul>
-        <% growth_record.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% growth_record.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :キッズ名 %><br>
+      <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
+    </div>
+
+    <div class="field">
+      <%= form.label :date %>
+      <%= form.date_select :date %>
+    </div>
+
+    <div class="field">
+      <%= form.label :height %>
+      <%= form.number_field :height %>
+    </div>
+
+    <div class="field">
+      <%= form.label :weight %>
+      <%= form.number_field :weight %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "登録", class: "login" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :キッズ名 %><br>
-    <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :height %>
-    <%= form.number_field :height %>
-  </div>
-
-  <div class="field">
-    <%= form.label :weight %>
-    <%= form.number_field :weight %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

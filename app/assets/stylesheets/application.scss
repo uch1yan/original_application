@@ -20,9 +20,6 @@
 @use 'families.scss';
 @use 'kids.scss';
 
-// html {
-//   background-color: wheat;
-// }
 #menu {
   width: 100%;
   max-width: 960px;
@@ -150,34 +147,6 @@ section {
     padding: 0;
   }
 }
-
-// .example2 {
-//   display: flex;
-// }
-
-// .example2 label {
-//   display: block;
-//   width: 25px;
-//   background: #c8eac3;
-//   color: #000;
-//   padding: 10px;
-//   margin: 10px;
-//   box-sizing: border-box;
-//   text-align: center;
-//   text-decoration: none;
-//   border-radius: 30px;
-//   cursor: pointer;
-// }
-
-// .example2 input:checked+label {
-//   background: #1a720d;
-//   color: #FFF;
-// }
-
-// .example2 input {
-//   display: none;
-// }
-
 
 .pick_up {
   width: 60%;

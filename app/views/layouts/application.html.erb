@@ -20,22 +20,28 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <% if user_signed_in? %>
-        <a class="navbar-brand" href="../posts">Home</a>
+          <%= link_to 'HOME', homes_path,  class: "navbar-brand" %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="../daily_conditions">今日の様子</a>
+              <%= link_to '今日の様子', daily_conditions_path,  class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../growth_records">成長記録</a>
+              <%= link_to '成長記録', growth_records_path,  class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../kid_vaccination_records">予防接種</a>
+              <%= link_to '予防接種', kid_vaccination_records_path,  class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../schedules">カレンダー</a>
+              <%= link_to 'カレンダー', schedules_path,  class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'メモ', posts_path,  class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'アカウント', user_path(current_user),  class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to 'ログアウト', users_sign_out_path,  class: "nav-link" %>
