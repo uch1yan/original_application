@@ -242,7 +242,7 @@ GrowthRecord.create!(
 GrowthRecord.create!(
   date: "2022-12-10",
   height: 100,
-  weight: 20.
+  weight: 20,
   kid_id: 2
 )
 
