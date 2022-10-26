@@ -292,9 +292,7 @@ Group.create!(
   family_id: 105
 )
 
-VaccinationRecord.create!(
-  name: "ヒブ",
-  name: "B型肝炎",
-  name: "小児用肺炎球菌",
-  name: "ロタウイルス"
-)
+VaccinationRecord.create!(name: "ヒブ")
+VaccinationRecord.create!(name: "B型肝炎")
+VaccinationRecord.create!(name: "小児用肺炎球菌")
+VaccinationRecord.create!(name: "ロタウイルス")
