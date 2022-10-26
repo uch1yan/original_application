@@ -71,6 +71,7 @@ Post.create!(
 )
 
 Schedule.create!(
+  start_time: "2022-12-01",
   title: "お遊戯会",
   content: "衣装を買いに行く",
   kid_id: 2
