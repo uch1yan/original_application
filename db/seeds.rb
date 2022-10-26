@@ -8,7 +8,7 @@
 
 User.create!(
   name: "dive",
-  email: "dive@com",
+  email: "dive@example.com",
   password: "password",
   admin: true,
   id: 1
@@ -18,7 +18,7 @@ User.create!(
   name: "dive2",
   email: "dive2@com",
   password: "password",
-  admin: true,
+  admin: false,
   id: 2
 )
 
@@ -27,7 +27,7 @@ User.create!(
   name: "dive3",
   email: "dive3@com",
   password: "password",
-  admin: true,
+  admin: false,
   id: 3
 )
 
@@ -35,7 +35,7 @@ User.create!(
   name: "dive4",
   email: "dive4@com",
   password: "password",
-  admin: true,
+  admin: false,
   id: 4
 )
 
@@ -43,7 +43,7 @@ User.create!(
   name: "dive5",
   email: "dive5@com",
   password: "password",
-  admin: true,
+  admin: false,
   id: 5
 )
 
@@ -206,29 +206,29 @@ Schedule.create!(
 
 Schedule.create!(
   start_time: "2022-12-01",
-  title: "お遊戯会",
-  content: "衣装を買いに行く",
+  title: "保育園",
+  content: "誕生日会",
   kid_id: 2
 )
 
 Schedule.create!(
   start_time: "2022-12-01",
-  title: "お遊戯会",
-  content: "衣装を買いに行く",
+  title: "写真撮影",
+  content: "100日記念の撮影",
   kid_id: 3
 )
 
 Schedule.create!(
   start_time: "2022-12-01",
-  title: "お遊戯会",
-  content: "衣装を買いに行く",
+  title: "お弁当会",
+  content: "キャラ弁を作る",
   kid_id: 4
 )
 
 Schedule.create!(
   start_time: "2022-12-01",
-  title: "お遊戯会",
-  content: "衣装を買いに行く",
+  title: "身体測定",
+  content: "1か月検診",
   kid_id: 5
 )
 
