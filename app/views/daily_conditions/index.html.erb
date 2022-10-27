@@ -1,13 +1,14 @@
-<%= link_to t('.register_conditions'), new_daily_condition_path %>
+<p><%= link_to t('.register_conditions'), new_daily_condition_path %></p>
 
-<%= month_calendar events: @conditions do |date, conditions| %>
-  <%= date.day %>
-  <div>
-    <% conditions.each do |condition| %>
-      <% if condition.kid.family.id == current_user.families.first.id %>
-        <%= link_to condition.kid.kid_name, condition %>
+<div class="calendar">
+  <%= month_calendar events: @conditions do |date, conditions| %>
+    <div class="date"><%= date.day %></div>
+    <div>
+      <% conditions.each do |condition| %>
+        <% if condition.kid.family.id == current_user.families.first.id %>
+          <%= link_to condition.kid.kid_name, condition %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-<% end %>
-
+    </div>
+  <% end %>
+</div>
