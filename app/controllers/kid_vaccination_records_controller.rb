@@ -1,7 +1,7 @@
 class KidVaccinationRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_kid, only: %i[ new create edit update ]
-  before_action :no_access, only: [:edit]
+  before_action :no_access, only: [:edit :show]
 
   def index
     @kid_vaccination_records = KidVaccinationRecord.all

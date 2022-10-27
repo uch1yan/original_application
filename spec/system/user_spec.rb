@@ -38,8 +38,8 @@ RSpec.describe 'ユーザ管理機能', type: :system do
       end 
 
       it 'ログアウトができること' do
-        visit users_sign_out_path
-        expect(current_path).to have_content 'ログアウトしました。'
+        click_link 'ログアウト'
+        expect(page).to have_content 'ログアウトしました。'
       end 
     end 
   end 

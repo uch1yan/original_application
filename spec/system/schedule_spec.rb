@@ -66,27 +66,6 @@ RSpec.describe 'スケジュール管理機能', type: :system do
     end
   end
 
-  describe '検索機能' do 
-    before do 
-      visit new_user_session_path 
-        fill_in 'user_email', with: 'test@example.com'
-        fill_in 'user_password', with: 'testpass'
-        click_on 'commit'
-    end 
-
-    context 'タイトル、内容であいまい検索をした場合' do
-      it '検索キーワードを含むスケジュールに絞り込まれる' do
-        FactoryBot.create(:family)
-        FactoryBot.create(:kid, family: family)
-        FactoryBot.create(:schedule, title: '予防接種', content: '水疱瘡の予防接種に行く', kid: kid)
-        visit schedules_path
-        fill_in 'q_title_or_content_cont', with: '水疱瘡'
-        click_on 'commit'
-        expect(page).to have_content '予防接種'
-      end
-    end
-  end
-
   describe 'アクセス制限' do 
     before do 
       visit new_user_session_path 
