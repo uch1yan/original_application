@@ -1,4 +1,9 @@
 <p>
+  <strong><%= t('.kid') %></strong>
+  <%= @schedule.kid.kid_name %>
+</p>
+
+<p>
   <strong><%= t('.date') %></strong>
   <%= @schedule.start_time.strftime("%Y-%m-%d %H:%M") %>
 </p>

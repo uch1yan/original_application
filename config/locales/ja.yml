@@ -35,6 +35,7 @@ ja:
       back: "前の画面に戻る"
   schedules:
     index:
+      kid: "名前"
       schedule: "スケジュール"
       child: "子供"
       date: "日付"
@@ -49,6 +50,7 @@ ja:
     new:
       new: スケジュールの新規登録
     show:
+      kid: "名前"
       date: "日時:"
       title: "タイトル:"
       content: "内容:"

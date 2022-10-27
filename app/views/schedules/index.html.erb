@@ -4,9 +4,9 @@
     <table>
       <thead>
         <tr>
+          <th><%= t('.kid') %>/  </th>  
           <th><%= t('.date') %>/  </th>  
-          <th><%= t('.title') %>/  </th>
-          <th><%= t('.content') %></th>
+          <th><%= t('.title') %> </th>
         </tr>
       </thead>
 
@@ -18,7 +18,6 @@
             <td><%= schedule.kid.kid_name %></td>
             <td><%= schedule.start_time.strftime("%Y-%m-%d %H:%M") %></td>
             <td><%= schedule.title %></td>
-            <td><%= schedule.content %></td>
             <td><%= link_to t('.detail'), schedule %></td>
             <td><%= link_to t('.edit'), edit_schedule_path(schedule) %></td>
             <td><%= link_to t('.delete'), schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
