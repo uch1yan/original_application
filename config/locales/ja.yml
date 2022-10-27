@@ -87,6 +87,8 @@ ja:
     new:
       new_record: "予防接種記録の登録"
   growth_records:
+    form:
+      back: "前の画面に戻る"
     index:
       growth_record: "成長記録"
       height: "身長"
