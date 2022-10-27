@@ -1,23 +1,25 @@
-<p>
-  <strong><%= t('.kid') %></strong>
-  <%= @schedule.kid.kid_name %>
-</p>
+<div class="user_info">
+  <p>
+    <strong><%= t('.kid') %></strong>
+    <%= @schedule.kid.kid_name %>
+  </p>
 
-<p>
-  <strong><%= t('.date') %></strong>
-  <%= @schedule.start_time.strftime("%Y-%m-%d %H:%M") %>
-</p>
+  <p>
+    <strong><%= t('.date') %></strong>
+    <%= @schedule.start_time.strftime("%Y-%m-%d %H:%M") %>
+  </p>
 
-<p>
-  <strong><%= t('.title') %></strong>
-  <%= @schedule.title %>
-</p>
+  <p>
+    <strong><%= t('.title') %></strong>
+    <%= @schedule.title %>
+  </p>
 
-<p>
-  <strong><%= t('.content') %></strong>
-  <%= @schedule.content %>
-</p>
+  <p>
+    <strong><%= t('.content') %></strong>
+    <%= @schedule.content %>
+  </p>
 
 
-<%= link_to t('.edit'), edit_schedule_path(@schedule) %> |
-<%= link_to  t('.back'), schedules_path %>
+  <%= link_to t('.edit'), edit_schedule_path(@schedule) %> |
+  <%= link_to  t('.back'), schedules_path %>
+</div>

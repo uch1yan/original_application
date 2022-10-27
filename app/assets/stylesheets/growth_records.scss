@@ -1,3 +1,51 @@
 // Place all the styles related to the growth_records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.height {
+  width: 50%;
+  float: left;
+}
+
+.weight {
+  width: 50%;
+  float: left;
+}
+
+.new {
+  font-size: 30px;
+  border-bottom: dotted 4px rgb(238, 76, 211); 
+  width: 380px; 
+  padding: 5px;
+  margin: 20px;
+  margin-left: 100px;
+}
+
+.detail {
+  font-size: 30px;
+  border-bottom: dotted 4px rgb(62, 113, 234);
+  width: 420px;
+  padding: 5px;
+  margin-left: 100px;
+}
+
+h2 {
+  margin: 50px;
+}
+
+.text-center {
+  margin:0 auto;
+}
+
+.button {
+  padding: 8px;
+  border-radius: 10px;
+  background: #adc3ff;
+  color: black;
+  font-size: 14px;
+  border: 1px solid #3b60f4;
+}
+
+.back {
+  text-align: right;
+}
