@@ -4,6 +4,7 @@
   <table>
     <thead>
       <tr>
+        <th><%= t('.kid') %></th>
         <th><%= t('.date') %></th>
         <th><%= t('.height') %></th>
         <th><%= t('.weight') %></th>
@@ -13,13 +14,16 @@
 
     <tbody>
       <% @growth_records.each do |growth_record| %>
+        <% if growth_record.kid.family.id == current_user.families.first.id %>   
         <tr>
+          <td><%= growth_record.kid.kid_name %></td>
           <td><%= growth_record.date %></td>
           <td><%= growth_record.height %></td>
           <td><%= growth_record.weight %></td>
           <td><%= link_to t('.edit'), edit_growth_record_path(growth_record) %></td>
           <td><%= link_to t('.delete'), growth_record_path(growth_record), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

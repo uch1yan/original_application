@@ -95,6 +95,7 @@ ja:
       new: "成長記録を登録する"
     show:
       detail: "成長記録の詳細"
+      kid: "名前"
       date: "実施日"
       height: "身長"
       weight: "体重"
