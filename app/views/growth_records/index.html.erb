@@ -1,13 +1,14 @@
-<h1><%= t('.growth_record') %></h1><br>
-<%= link_to t('.new'), new_growth_record_path %> 
-
+<h1><%= t('.growth_record') %> <i class="fa-solid fa-arrow-up-right-dots"></i></h1><br>
+<p class="new">  <i class="fa-regular fa-pen-to-square"></i>  <%= link_to t('.new'), new_growth_record_path %></p>
+<p class="detail">  <i class="fa-solid fa-circle-info"></i>  <%= link_to t('.detail'), growth_record_path(@growth_records) %></p>
+<br>
+<br>
 <% @kids.each do |kid| %>
   <h2><%= kid.kid_name %>の成長記録</h2>
   <br>
-  <%= line_chart [ { name: t('.height'), data: @growth_data.where(kid: kid).map { |record| record.slice(:date, :height).values } } ] %>
-  <%= line_chart [ { name: t('.weight'), data: @growth_data.where(kid: kid).map { |record| record.slice(:date, :weight).values } } ] %>
+  <div class="height"><%= line_chart [ { name: t('.height'), data: @growth_data.where(kid: kid).map { |record| record.slice(:date, :height).values } } ] %></div>
+  <div class="weight"><%= line_chart [ { name: t('.weight'), data: @growth_data.where(kid: kid).map { |record| record.slice(:date, :weight).values } } ] %></div>
   <br>
 <% end %>
 
-<%= link_to t('.detail'), growth_record_path(@growth_records) %> 
 
