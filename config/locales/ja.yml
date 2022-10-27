@@ -36,9 +36,6 @@ ja:
   schedules:
     index:
       schedule: "スケジュール"
-      part_search: "あいまい検索"
-      search_title: "タイトル"
-      search: "検索"
       child: "子供"
       date: "日付"
       title: "タイトル"
@@ -53,7 +50,7 @@ ja:
       new: スケジュールの新規登録
     show:
       date: "日時:"
-      title: ”タイトル:”
+      title: "タイトル:"
       content: "内容:"
       edit: "編集"
       back: "戻る"
