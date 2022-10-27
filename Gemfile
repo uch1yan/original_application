@@ -56,4 +56,4 @@ gem 'devise-i18n'
 gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
-
+gem 'dotenv-rails'

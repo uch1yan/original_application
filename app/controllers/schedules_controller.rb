@@ -1,7 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_schedule, only: %i[ show edit update destroy ]
-  before_action :set_q, only: [:index, :search]
   before_action :set_kid, only: %i[ new create edit update ]
   before_action :no_access, only: %i[ edit show ]
   
@@ -60,15 +59,8 @@ class SchedulesController < ApplicationController
     end
   end
 
-  def search
-    @results = @q.result
-  end
-
   private
 
-  def set_q
-    @q = Schedule.ransack(params[:q])
-  end
     
   def set_schedule
     @schedule = Schedule.find(params[:id])
@@ -85,7 +77,7 @@ class SchedulesController < ApplicationController
   def no_access
     @schedule = Schedule.find(params[:id])
     unless current_user.families.first.id == @schedule.kid.family.id
-    redirect_to schedules_path, notice: t('notice.no_access')
+      redirect_to schedules_path, notice: t('notice.no_access')
     end 
   end
 end
