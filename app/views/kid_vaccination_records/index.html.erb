@@ -1,33 +1,35 @@
-<h1><%= t('.record') %></h1>
+<div class="user_info">
+  <h1><%= t('.record') %></h1>
 
-<table>
-  <thead>
-    <tr>    
-      <th><%= sort_link(@q, :kid_kid_name, t('.kid_name')) %></th>
-      <th><%= sort_link(@q, :vaccination_record_name, t('.vaccine_name')) %></th>
-      <th><%= sort_link(@q, :count, t('.count')) %></th>
-      <th><%= sort_link(@q, :inplemented_date, t('.inplemented_date')) %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-
-  <tbody>
-    <% @kid_vaccination_records.each do |kid_vaccine| %>
-      <% if kid_vaccine.kid.family.id == current_user.families.first.id %>   
-      <tr class="vaccine-row">
-        <td><%= Kid.find(kid_vaccine.kid_id).kid_name %></td>
-        <td><%= VaccinationRecord.find(kid_vaccine.vaccination_record_id).name %></td>
-        <td><%= kid_vaccine.count %></td>
-        <td><%= kid_vaccine.inplemented_date %></td>
-        <td><%= link_to t('.edit'), edit_kid_vaccination_record_path(kid_vaccine) %></td>
-        <td><%= link_to t('.delete'), kid_vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <table>
+    <thead>
+      <tr>    
+        <th><%= sort_link(@q, :kid_kid_name, t('.kid_name')) %></th>
+        <th><%= sort_link(@q, :vaccination_record_name, t('.vaccine_name')) %></th>
+        <th><%= sort_link(@q, :count, t('.count')) %></th>
+        <th><%= sort_link(@q, :inplemented_date, t('.inplemented_date')) %></th>
+        <th colspan="3"></th>
       </tr>
-      <% end%>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
 
-<%= link_to t('.register_records'), new_kid_vaccination_record_path %> 
+    <tbody>
+      <% @kid_vaccination_records.each do |kid_vaccine| %>
+        <% if kid_vaccine.kid.family.id == current_user.families.first.id %>   
+        <tr class="vaccine-row">
+          <td><%= Kid.find(kid_vaccine.kid_id).kid_name %></td>
+          <td><%= VaccinationRecord.find(kid_vaccine.vaccination_record_id).name %></td>
+          <td><%= kid_vaccine.count %></td>
+          <td><%= kid_vaccine.inplemented_date %></td>
+          <td><%= link_to t('.edit'), edit_kid_vaccination_record_path(kid_vaccine) %> /</td>
+          <td><%= link_to t('.delete'), kid_vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end%>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <div class="button"><%= link_to t('.register_records'), new_kid_vaccination_record_path %></div>
+</div>

@@ -34,6 +34,8 @@ ja:
     new:
       back: "前の画面に戻る"
   schedules:
+    form:
+      back: "前の画面に戻る"
     index:
       kid: "名前"
       schedule: "スケジュール"
@@ -73,6 +75,8 @@ ja:
       edit: "編集"
       delete: "削除"
   kid_vaccination_records:
+    form:
+      back: "前の画面に戻る"
     index:
       record: "予防接種記録"
       kid_name: "子供"

@@ -1,3 +1,16 @@
 // Place all the styles related to the kid_vaccination_rcords controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.button {
+  padding: 8px;
+  border-radius: 10px;
+  background: #adc3ff;
+  color: black;
+  font-size: 14px;
+  border: 1px solid #3b60f4;
+}
+
+.back {
+  text-align: right;
+}
