@@ -24,12 +24,12 @@
 
     <div class="field">
       <%= form.label :title, 'タイトル' %>
-      <%= form.text_field :title %>
+      <%= form.text_field :title, placeholder: "お誕生日会" %>
     </div>
 
     <div class="field">
       <%= form.label :content, '予定の詳細' %>
-      <%= form.text_area :content %>
+      <%= form.text_area :content, placeholder: "プレゼントを買う" %>
     </div>
 
     <%= form.hidden_field :family_id, :value => current_user.family_ids %>

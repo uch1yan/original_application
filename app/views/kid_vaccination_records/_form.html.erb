@@ -3,12 +3,12 @@
 
     <div class="field">
       <%= form.label :キッズ名 %><br>
-      <%= form.collection_select(:kid_id, @kids, :id,:kid_name )%>
+      <%= form.collection_select(:kid_id, @kids, :id,:kid_name ) %>
     </div>
 
     <div class="field">
       <%= form.label :name %>
-      <%= form.collection_select(:vaccination_record_id, VaccinationRecord.all, :id, :name )%>
+      <%= form.collection_select(:vaccination_record_id, VaccinationRecord.all, :id, :name ) %>
     </div>
 
     <div class="field">

@@ -59,7 +59,6 @@ class KidVaccinationRecordsController < ApplicationController
 
   def set_kid
     @kids = current_user.families.first.kids
-    #アソシエーション要検討
   end
 
   def no_access

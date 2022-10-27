@@ -39,7 +39,7 @@
         <tr>
           <div class="field">
             <%= form.label :temperature, "体温" %>
-            <%= form.text_field :temperature %>
+            <%= form.text_field :temperature, placeholder: "36.5" %>
           </div>
         </tr>
 
@@ -53,14 +53,14 @@
         <tr>
           <div class="field">
             <%= form.label :sleep, "睡眠時間" %>
-            <%= form.text_field :sleep %>
+            <%= form.text_field :sleep, placeholder: "7時間" %>
           </div>
         </tr>
 
         <tr>
           <div class="field">
             <%= form.label :comment, "コメント" %>
-            <%= form.text_field :comment %>
+            <%= form.text_field :comment, placeholder: "よく眠ってくれた" %>
           </div>
         </tr>
       </table>
