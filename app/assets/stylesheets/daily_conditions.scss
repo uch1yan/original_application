@@ -1,3 +1,50 @@
 // Place all the styles related to the daily_conditions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#comment_content {
+  margin: 0 auto;  
+  width: 300px;
+  border-color: #ffb3b3;
+  padding: 10px;
+  background: #ffe6e6;
+  border-radius: 20px;
+  margin: 20px auto;
+  border-style: dashed;
+}
+
+.box {
+  // text-align: center;
+  border-color: #ffb3b3;
+  padding: 30px;
+  margin-right: 100px;
+  margin-left: 100px;
+  background: #ffe6e6;
+  border-radius: 20px;
+  margin: 20px auto;
+  margin-top: 100px;
+  max-width: 300px;
+  border-style: dashed;
+}
+
+.edit_button {
+  padding: 8px;
+  border-radius: 20px;
+  background: #edc482;
+  color: black;
+  font-size: 10px;
+  border: 1px solid #f1b92c;
+}
+
+.delete {
+  padding: 8px;
+  border-radius: 20px;
+  background: #bef4fc;
+  color: black;
+  font-size: 10px;
+  border: 1px solid #50d0f4;
+}
+
+.buttons {
+  text-align: right;
+}

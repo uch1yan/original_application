@@ -1,25 +1,28 @@
   <h1><%= t('.detail') %></h1>
-  <div class="text-center"> 
   
-  <p><strong><%= t('.name') %></strong> <%= @condition.kid.kid_name %></p>
-  <p><strong><%= t('.date') %></strong> <%= @condition.start_time.strftime("%Y-%m-%d %H:%M") %></p>
-  <p><strong><%= t('.mood') %></strong> <%= @condition.mood %></p>
-  <p><strong><%= t('.temperature') %></strong>  <%= @condition.temperature %></p>
-  <p><strong><%= t('.toilet') %></strong>  <%= @condition.toilet %></p>
-  <p><strong><%= t('.sleep') %></strong>  <%= @condition.sleep %></p>
-  <p><strong><%= t('.comment') %></strong>  <%= @condition.comment %></p>
+  <div class="box">    
+    <p><strong><%= t('.name') %></strong> <%= @condition.kid.kid_name %></p>
+    <p><strong><%= t('.date') %></strong> <%= @condition.start_time.strftime("%Y-%m-%d %H:%M") %></p>
+    <p><strong><%= t('.mood') %></strong> <%= @condition.mood %></p>
+    <p><strong><%= t('.temperature') %></strong>  <%= @condition.temperature %></p>
+    <p><strong><%= t('.toilet') %></strong>  <%= @condition.toilet %></p>
+    <p><strong><%= t('.sleep') %></strong>  <%= @condition.sleep %></p>
+    <p><strong><%= t('.comment') %></strong>  <%= @condition.comment %></p>
 
-  <%= link_to t('.edit'), edit_daily_condition_path(@condition.id) %>
-  <%= link_to t('.delete'), daily_condition_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
-  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
-  <div id="comments_area">
-    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-    <%= render partial: 'comments/index', locals: { comments: @comments, daily_condition: @condition } %>
+    <div class="buttons">
+      <%= link_to t('.edit'), edit_daily_condition_path(@condition.id), class: "edit_button" %>
+      <%= link_to t('.delete'), daily_condition_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" %>
+    </div>
   </div>
 
-  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-  <%= render partial: 'comments/form', locals: { comment: @comment, daily_condition: @condition } %>
+  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+  <div class="comment">
+    <div id="comments_area">
+      <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+      <%= render partial: 'comments/index', locals: { comments: @comments, daily_condition: @condition } %>
+    </div>
 
-  
+    <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/form', locals: { comment: @comment, daily_condition: @condition } %>
+  </div>
+    

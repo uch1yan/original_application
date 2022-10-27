@@ -1,4 +1,3 @@
-<!-- この記述がblogのshow画面に表示されるコメント入力欄になります -->
 <%= form_with(model: [daily_condition, comment], local: false) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
@@ -17,6 +16,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "コメント送信", class: "sent" %>
   </div>
 <% end %>
