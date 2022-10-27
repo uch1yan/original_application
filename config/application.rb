@@ -33,8 +33,4 @@ module OriginalApplication
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
-    config.action_mailer.default_url_options = {
-      host: 'https://hidden-scrubland-42949.herokuapp.com/', protocol: 'https://'
-    }
-  end
 end
