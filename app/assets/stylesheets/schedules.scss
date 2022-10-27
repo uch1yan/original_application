@@ -2,10 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.all {
+  position: relative;
+}
+
 .calendar {
   width: 60%;
-  text-align: center;
-  margin:0 auto;
+  // text-align: center;
+  margin-right: 200px;
+  margin-top: 0;
 }
 
 p {
@@ -20,8 +25,73 @@ p {
 
 .calendar-title {
   font-size: 40px;
+  width: 100px;
 }
 
 .calendar-heading a {
   margin: 20px;
+}
+
+.cp_ipcheck {
+  width: 90%;
+  margin: 2em auto;
+  text-align: left;
+}
+
+.cp_ipcheck ul {
+  margin: 1rem 0.5rem;
+  padding: 0.5rem 1rem;
+  list-style: none;
+}
+
+.cp_ipcheck .list_item {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+}
+
+.cp_ipcheck label {
+  line-height: 135%;
+  position: relative;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.cp_ipcheck .option-input05 {
+  position: relative;
+  margin: 0 1rem 0 0;
+  cursor: pointer;
+}
+
+.cp_ipcheck .option-input05:before {
+  position: absolute;
+  z-index: 1;
+  top: 0.125rem;
+  left: 0.1875rem;
+  width: 0.75rem;
+  height: 0.375rem;
+  content: '';
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+  transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+  -webkit-transform: rotate(-45deg) scale(0, 0);
+  transform: rotate(-45deg) scale(0, 0);
+  border: 2px solid #da3c41;
+  border-top-style: none;
+  border-right-style: none;
+}
+
+.cp_ipcheck .option-input05:checked:before {
+  -webkit-transform: rotate(-45deg) scale(1, 1);
+  transform: rotate(-45deg) scale(1, 1);
+}
+
+.cp_ipcheck .option-input05:after {
+  position: absolute;
+  top: -0.125rem;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  content: '';
+  cursor: pointer;
+  border: 2px solid #4d4b4b;
+  background: #ffffff;
 }
