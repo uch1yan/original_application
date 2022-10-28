@@ -3,10 +3,10 @@
 
     <% if @condition.errors.any? %>
       <div class="error_explanation">
-        <ul>
-        <% @condition.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
+        <ul class="error">
+          <% @condition.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         </ul>
       </div>
     <% end %>

@@ -1,7 +1,7 @@
   <%= form_with(model: family) do |form| %>
     <% if family.errors.any? %>
       <div id="error_explanation">
-        <ul>
+        <ul class="error">
           <% family.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>

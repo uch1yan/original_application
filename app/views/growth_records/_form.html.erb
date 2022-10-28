@@ -2,7 +2,7 @@
   <%= form_with(model: growth_record) do |form| %>
     <% if growth_record.errors.any? %>
       <div id="error_explanation">
-        <ul>
+        <ul class="error">
           <% growth_record.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>

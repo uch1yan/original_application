@@ -260,3 +260,16 @@ form {
   text-align: right;
 }
 
+#error_explanation {
+  text-align: center;
+  border-color: #ffb3b3;
+  padding: 5px;
+  background: #ffe6e6;
+  border-radius: 20px;
+  margin: 10px auto;
+}
+
+.error li {
+  display: block;
+  list-style: none;
+}

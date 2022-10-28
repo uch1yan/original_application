@@ -2,7 +2,7 @@
   <%= form_with(model: schedule) do |form| %>
     <% if schedule.errors.any? %>
       <div id="error_explanation">
-        <ul>
+        <ul class="error">
           <% schedule.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>

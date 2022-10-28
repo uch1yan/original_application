@@ -1,7 +1,7 @@
 <%= form_with(model: [daily_condition, comment], local: false) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
-      <ul>
+      <ul class="error">
       <% comment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
