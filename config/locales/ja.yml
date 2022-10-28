@@ -23,6 +23,7 @@ ja:
       register_family: "家族名の登録"
       edit: "編集"
       register_my_kids: "マイキッズの登録"
+      registered_kid: "登録済のマイキッズ"
       invite_family: "家族の招待"
     edit:
       edit: "編集ページ"
