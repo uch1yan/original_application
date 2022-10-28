@@ -22,9 +22,9 @@
 @use 'daily_conditions.scss';
 @use 'comments.scss';
 @use 'schedules.scss';
-@use 'daily_conditions.scss';
 @use 'growth_records.scss';
 @use 'kid_vaccination_records.scss';
+@use 'posts.scss';
 
 #menu {
   width: 100%;
@@ -73,7 +73,7 @@ section {
 }
 
 .title {
-  font-size: 80px;
+  font-size: 70px;
   font-family: 'Ribeye Marrow', cursive;
 }
 
