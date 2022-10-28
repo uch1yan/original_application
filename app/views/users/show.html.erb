@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="user_info">
-    <h2>ユーザー情報 <i class="fa-solid fa-user"></i></h2>
+    <h2><%= t('.user_info') %> <i class="fa-solid fa-user"></i></h2>
     <p>
       <strong><%= t('.user_name') %></strong>:
       <%= @user.name %>
@@ -22,15 +22,19 @@
       <%= family.name %>
     </p>
     <% else %>
-      <p>STEP1   <%= link_to t('.register_family'), new_family_path %><br></p>
+      <p><%= t('.step1') %>   <%= link_to t('.register_family'), new_family_path %><br></p>
     <% end %>
 
     <% if family && family.kids.length > 0 %>
+      <ul>登録済のマイキッズ</ul>
+      <% family.kids.each do |kid| %>
+        <li><%= kid.kid_name %></li>
+      <% end %>
     <p>
-      <i class="fa-regular fa-face-smile"></i><%= link_to 'マイキッズの追加', new_kid_path %>
+      <i class="fa-regular fa-face-smile"></i><%= link_to t('.add_kid'), new_kid_path %>
     </p>
     <% else %>
-      <p>STEP2   <i class="fa-regular fa-face-smile"></i><%= link_to t('.register_my_kids'), new_kid_path %> </p>  
+      <p><%= t('.step2') %>   <i class="fa-regular fa-face-smile"></i><%= link_to t('.register_my_kids'), new_kid_path %> </p>  
     <% end %>
 
     <p><i class="fa-regular fa-envelope"></i><%= link_to t('.invite_family'), new_user_invitation_path %></p>

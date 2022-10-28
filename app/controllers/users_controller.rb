@@ -20,6 +20,10 @@ class UsersController < ApplicationController
   def show
     # @user = current_user
     @user = User.find(params[:id])
+    family = current_user.families.first
+    if params[:login] && family && family.kids.length > 0 
+      redirect_to schedules_path
+    end
   end
 
   def edit

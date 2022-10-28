@@ -12,6 +12,10 @@ ja:
       login: "ログイン"
   users:
     show:
+      user_info: "ユーザー情報"
+      step1: "STEP1"
+      step2: "STEP"
+      add_kid: "マイキッズの追加"
       user_name: "ユーザ名"
       email: "メールアドレス"
       admin: "管理者"
