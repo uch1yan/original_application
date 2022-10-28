@@ -2,8 +2,6 @@
   <%= form_with(model: growth_record) do |form| %>
     <% if growth_record.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(growth_record.errors.count, "error") %> prohibited this growth_record from being saved:</h2>
-
         <ul>
           <% growth_record.errors.each do |error| %>
             <li><%= error.full_message %></li>

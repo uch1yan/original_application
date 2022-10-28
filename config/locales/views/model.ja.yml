@@ -6,6 +6,7 @@ ja:
       post: メモ
       growth_record: 成長記録
       kid_vaccination_record: 予防接種記録
+      vaccination_record: 予防接種名
       schedule: スケジュール
       kid: 子供
       group: グループ
@@ -38,3 +39,13 @@ ja:
         title: タイトル
         content: 内容
         start_time: 日付
+      family:
+        name: 家族名
+      kid:
+        kid_name: 子供の名前
+        date_of_birth: 生年月日
+      vaccination_record:
+        name: ワクチン名
+      comment:
+        date: 日付
+        content: 内容

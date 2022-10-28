@@ -14,7 +14,13 @@ class GrowthRecordsController < ApplicationController
 
   # GET /growth_records/1 or /growth_records/1.json
   def show
-    @growth_records = GrowthRecord.all
+    @kids = current_user.families.first.kids
+    @growth_records = []
+    @kids.each do |kid|
+      kid.growth_records.each do |growth_record|
+        @growth_records << growth_record
+      end
+    end
   end
 
   # GET /growth_records/new

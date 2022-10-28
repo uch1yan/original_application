@@ -3,7 +3,6 @@
 
     <% if @condition.errors.any? %>
       <div class="error_explanation">
-        <h2><%= @condition.errors.count %>件のエラーがあります</h2>
         <ul>
         <% @condition.errors.full_messages.each do |message| %>
         <li><%= message %></li>

@@ -2,8 +2,6 @@
   <%= form_with(model: post) do |form| %>
     <% if post.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
         <ul>
           <% post.errors.each do |error| %>
             <li><%= error.full_message %></li>
@@ -23,7 +21,8 @@
     </div>
 
     <div class="actions">
-      <%= form.submit "登録", class: "login" %>
+      <%= form.submit "登録", class: "post" %>
     </div>
   <% end %>
+  <div class="back"><%= link_to t('.back'), posts_path %></div>
 </div>
