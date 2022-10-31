@@ -1,4 +1,4 @@
-<p><%= link_to t('.register_conditions'), new_daily_condition_path %></p>
+<p class="condition"><i class="fa-regular fa-pen-to-square"></i><%= link_to t('.register_conditions'), new_daily_condition_path %></p>
 
 <div class="calendar">
   <%= month_calendar events: @conditions do |date, conditions| %>
