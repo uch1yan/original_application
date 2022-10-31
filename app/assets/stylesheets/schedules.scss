@@ -12,6 +12,10 @@
   margin-top: 0;
 }
 
+.calendar {
+  margin-left: 450px;
+}
+
 p {
   font-size: 24px;
   padding: 20px;
@@ -39,7 +43,6 @@ p {
 
 .cp_ipcheck ul {
   margin: 1rem 0.5rem;
-  padding: 0.5rem 1rem;
   list-style: none;
 }
 
@@ -113,6 +116,13 @@ p {
   margin-top: 50px;
   border-style: dashed;
   // float: left;
-  font-size: 8px;
+  font-size: 18px;
   max-width: 400px;
+}
+
+.new_schedule {
+  font-size: 30px;
+  border-bottom: dotted 4px rgb(238, 76, 211);
+  width: 410px;
+  padding: 5px;
 }

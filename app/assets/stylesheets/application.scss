@@ -52,7 +52,7 @@
 }
 
 #menu li a:hover {
-  background: #444;
+  background: rgb(154, 221, 238);
 }
 
 #toggle {
@@ -79,7 +79,7 @@ section {
 }
 
 .container-fluid {
-  height: 75px;
+  height: 115px;
 
   .nav-item {
     font-size: 18px;
@@ -273,4 +273,9 @@ form {
 .error li {
   display: block;
   list-style: none;
+}
+
+img {
+  width: 120px;
+  height: 120px;
 }
