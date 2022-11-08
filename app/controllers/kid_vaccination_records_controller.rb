@@ -2,6 +2,7 @@ class KidVaccinationRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_kid, only: %i[ new create edit update ]
   before_action :no_access, only: %i[edit show]
+  before_action :no_kids_no_family
 
   def index
     @kid_vaccination_records = KidVaccinationRecord.all
@@ -16,8 +17,6 @@ class KidVaccinationRecordsController < ApplicationController
   def create
     current_kid = Kid.find(kid_vaccination_record_params[:kid_id])
     kid_vaccination_record = current_kid.kid_vaccination_records.create!(vaccination_record_id: params[:kid_vaccination_record][:vaccination_record_id], inplemented_date: params[:kid_vaccination_record][:inplemented_date], count: params[:kid_vaccination_record][:count])
-    #kid_vaccination_recordの変数はいらないかも
-    #kid_vaccination_record = current_kid.kid_vaccination_records.create!(VaccinationRecord.name: params[:kid_vaccination_record][:name], inplemented_date: params[:kid_vaccination_record][:inplemented_date], count: params[:kid_vaccination_record][:count])
     redirect_to kid_vaccination_records_path, notice: t('notice.create_vaccine_records')
 
   end
@@ -66,5 +65,11 @@ class KidVaccinationRecordsController < ApplicationController
     unless current_user.families.first.id == @kid_vaccination_record.kid.family.id
       redirect_to kid_vaccination_records_path, notice: t('notice.no_access')
     end 
+  end
+
+  def no_kids_no_family
+    unless current_user.families && current_user.families.first.kids.length > 0
+      redirect_to user_path(current_user), notice: "家族名／マイキッズの登録をしてください"
+    end
   end
 end

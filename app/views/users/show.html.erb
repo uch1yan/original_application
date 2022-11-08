@@ -16,26 +16,27 @@
     <br>
 
     <% if current_user.families.first.present? %>
-    <p>
-      <strong><%= t('.family') %></strong>:
-      <% family=current_user.families.first %>
-      <%= family.name %>
-    </p>
+      <p>
+        <strong><%= t('.family') %></strong>:
+        <% family=current_user.families.first %>
+        <%= family.name %>
+      </p>
     <% else %>
       <p><%= t('.step1') %>   <%= link_to t('.register_family'), new_family_path %><br></p>
     <% end %>
 
     <% if family && family.kids.length > 0 %>
       <ul><strong><%= t('.registered_kid') %></strong></ul>
-      <% family.kids.each do |kid| %>
-        <li><%= kid.kid_name %></li>
-      <% end %>
-    <p>
-      <i class="fa-regular fa-face-smile"></i><%= link_to t('.add_kid'), new_kid_path %>
-    </p>
+        <% family.kids.each do |kid| %>
+          <li><%= kid.kid_name %></li>
+        <% end %>
+        <p>
+          <i class="fa-regular fa-face-smile"></i><%= link_to t('.add_kid'), new_kid_path %>
+        </p>
     <% else %>
       <p><%= t('.step2') %>   <i class="fa-regular fa-face-smile"></i><%= link_to t('.register_my_kids'), new_kid_path %> </p>  
     <% end %>
 
     <p><i class="fa-regular fa-envelope"></i><%= link_to t('.invite_family'), new_user_invitation_path %></p>
   </div>
+</div>

@@ -2,7 +2,7 @@ class DailyConditionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_kid, only: %i[ new create show edit update ]
   before_action :no_access, only: %i[ edit show ]
-
+  before_action :no_kids_no_family
   
   def index
     @conditions = DailyCondition.all
@@ -64,6 +64,12 @@ class DailyConditionsController < ApplicationController
     unless current_user.families.first.id == @condition.kid.family.id
       redirect_to daily_conditions_path, notice: t('notice.no_access') 
     end 
+  end
+
+  def no_kids_no_family
+    unless current_user.families && current_user.families.first.kids.length > 0
+      redirect_to user_path(current_user), notice: "家族名／マイキッズの登録をしてください"
+    end
   end
 end
 

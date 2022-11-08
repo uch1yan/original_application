@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :no_access, only: %i[ edit ]
-
+  before_action :no_kids_no_family
 
   # GET /posts or /posts.json
   def index
@@ -75,6 +75,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     unless current_user.families.first.id == @post.user.families.first.id
       redirect_to posts_path, notice: t('notice.no_access')
+    end
+  end
+
+  def no_kids_no_family
+    unless current_user.families && current_user.families.first.kids.length > 0
+      redirect_to user_path(current_user), notice: "家族名／マイキッズの登録をしてください"
     end
   end
 end
