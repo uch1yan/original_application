@@ -14,6 +14,8 @@
 
 - gem/simple_calendar
 - gem/chartkick
+- gem/ransack
+- gem/devise/invitable
 
 ## **実行手順**
 
