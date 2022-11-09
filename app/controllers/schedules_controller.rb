@@ -4,7 +4,7 @@ class SchedulesController < ApplicationController
   before_action :set_kid, only: %i[ new create edit update ]
   before_action :no_access, only: %i[ edit show ]
   before_action :no_family
-  before_action :no_kids_no_family
+  before_action :no_kid
 
   def index
     @schedules = Schedule.all
@@ -89,9 +89,9 @@ class SchedulesController < ApplicationController
     end
   end
 
-  def no_kids_no_family
-    unless current_user.families || current_user.families.first.kids.length > 0
-      redirect_to user_path(current_user), notice: "家族名／マイキッズの登録をしてください"
+  def no_kid
+    unless current_user.families.first.kids.length > 0
+      redirect_to user_path(current_user), notice: "マイキッズの登録をしてください"
     end
   end
 end
