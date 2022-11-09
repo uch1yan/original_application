@@ -3,6 +3,7 @@ class GrowthRecordsController < ApplicationController
   before_action :set_growth_record, only: %i[ edit update destroy ]
   before_action :set_kid, only: %i[ new create edit update ]
   before_action :no_access, only: %i[ edit ]
+  before_action :no_family
   before_action :no_kids_no_family
 
   # GET /growth_records or /growth_records.json
@@ -92,9 +93,15 @@ class GrowthRecordsController < ApplicationController
       end 
     end
 
+    def no_family
+      unless current_user.families.first.present?
+        redirect_to new_family_path, notice: "はじめに家族名を登録してください"
+      end
+    end
+
     def no_kids_no_family
       unless current_user.families && current_user.families.first.kids.length > 0
         redirect_to user_path(current_user), notice: "家族名／マイキッズの登録をしてください"
       end
-  end
+    end
 end

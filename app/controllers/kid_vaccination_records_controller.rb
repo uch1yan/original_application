@@ -2,6 +2,7 @@ class KidVaccinationRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_kid, only: %i[ new create edit update ]
   before_action :no_access, only: %i[edit show]
+  before_action :no_family
   before_action :no_kids_no_family
 
   def index
@@ -65,6 +66,12 @@ class KidVaccinationRecordsController < ApplicationController
     unless current_user.families.first.id == @kid_vaccination_record.kid.family.id
       redirect_to kid_vaccination_records_path, notice: t('notice.no_access')
     end 
+  end
+
+  def no_family
+    unless current_user.families.first.present?
+      redirect_to new_family_path, notice: "はじめに家族名を登録してください"
+    end
   end
 
   def no_kids_no_family

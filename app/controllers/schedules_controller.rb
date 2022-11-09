@@ -3,6 +3,7 @@ class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[ show edit update destroy ]
   before_action :set_kid, only: %i[ new create edit update ]
   before_action :no_access, only: %i[ edit show ]
+  before_action :no_family
   before_action :no_kids_no_family
 
   def index
@@ -82,8 +83,14 @@ class SchedulesController < ApplicationController
     end 
   end
 
+  def no_family
+    unless current_user.families.first.present?
+      redirect_to new_family_path, notice: "はじめに家族名を登録してください"
+    end
+  end
+
   def no_kids_no_family
-    unless current_user.families && current_user.families.first.kids.length > 0
+    unless current_user.families || current_user.families.first.kids.length > 0
       redirect_to user_path(current_user), notice: "家族名／マイキッズの登録をしてください"
     end
   end
